@@ -1,0 +1,14 @@
+2023-11-26 15:40:02,577 ERROR:2023-11-26 15:40:02.576180 - An error occurred: Error reading data/teardrop.cap: name 'info_logger' is not defined
+Traceback (most recent call last):
+  File "c:\Users\Codizzle\Desktop\School\networkSecurity\project\pcapScrape.py", line 34, in process_pcap
+    info_logger.info(f"Successfully read {len(packets)} packets from {pcap_file}")
+    ^^^^^^^^^^^
+NameError: name 'info_logger' is not defined
+
+2023-11-26 15:40:03,013 ERROR:2023-11-26 15:40:03.012286 - An error occurred: Error reading data/example-tptk-attack.pcapng: name 'info_logger' is not defined
+Traceback (most recent call last):
+  File "c:\Users\Codizzle\Desktop\School\networkSecurity\project\pcapScrape.py", line 34, in process_pcap
+    info_logger.info(f"Successfully read {len(packets)} packets from {pcap_file}")
+    ^^^^^^^^^^^
+NameError: name 'info_logger' is not defined
+
