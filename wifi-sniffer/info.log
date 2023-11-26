@@ -1,5 +1,387 @@
 ************************************* PCAP FILE ANALYSIS *************************************
 
+============================== DATA/EXAMPLE-FT.PCAPNG ==============================
+
+Successfully read 1378 packets from data/example-ft.pcapng
+Blocking traffic for potential attackers.
+
+Potential Attackers detected in data/example-ft.pcapng
+  Source MAC: c4:e9:84:1d:a5:bc (Packets: 559)
+  Blocked: c4:e9:84:1d:a5:bc
+
+  Source MAC: c4:e9:84:db:fb:7b (Packets: 590)
+  Blocked: c4:e9:84:db:fb:7b
+
+  Source MAC: 00:c0:ca:75:d3:27 (Packets: 90)
+  Blocked: 00:c0:ca:75:d3:27
+
+  Source MAC: None (Packets: 139)
+  Blocked: None
+
+============================== DATA/EXAMPLE-TPTK-ATTACK.PCAPNG ==============================
+
+Successfully read 285 packets from data/example-tptk-attack.pcapng
+Blocking traffic for potential attackers.
+
+Potential Attackers detected in data/example-tptk-attack.pcapng
+  Source MAC: 02:00:00:00:00:00 (Packets: 214)
+  Blocked: 02:00:00:00:00:00
+
+  Source MAC: 02:00:00:00:01:00 (Packets: 50)
+  Blocked: 02:00:00:00:01:00
+
+  Source MAC: None (Packets: 21)
+  Blocked: None
+
+============================== DATA/IPV4FRAGS.PCAP ==============================
+
+Successfully read 3 packets from data/ipv4frags.pcap
+
+Packet 1 - Timestamp: 2017-10-02 12:03:32.535 - Length: 1010 bytes
+Source IP: 2.1.1.2, Destination IP: 2.1.1.1
+Source Port: N/A, Destination Port: N/A, Protocol: 1
+
+
+Packet 2 - Timestamp: 2017-10-02 12:03:32.535 - Length: 466 bytes
+Source IP: 2.1.1.2, Destination IP: 2.1.1.1
+Source Port: N/A, Destination Port: N/A, Protocol: 1
+
+
+Packet 3 - Timestamp: 2017-10-02 12:03:32.535 - Length: 1442 bytes
+Source IP: 2.1.1.1, Destination IP: 2.1.1.2
+Source Port: N/A, Destination Port: N/A, Protocol: 1
+
+============================== DATA/NF9-JUNIPER-VMX.PCAPNG.CAP ==============================
+
+Successfully read 5 packets from data/nf9-juniper-vmx.pcapng.cap
+
+Packet 1 - Timestamp: 2016-12-10 07:19:43.036 - Length: 98 bytes
+Source IP: 192.168.17.114, Destination IP: 192.168.16.36
+Source Port: N/A, Destination Port: N/A, Protocol: 17
+
+
+Packet 2 - Timestamp: 2016-12-10 07:19:43.037 - Length: 90 bytes
+Source IP: 192.168.17.114, Destination IP: 192.168.16.36
+Source Port: N/A, Destination Port: N/A, Protocol: 17
+
+
+Packet 3 - Timestamp: 2016-12-10 07:20:08.043 - Length: 98 bytes
+Source IP: 192.168.17.114, Destination IP: 192.168.16.36
+Source Port: N/A, Destination Port: N/A, Protocol: 17
+
+
+Packet 4 - Timestamp: 2016-12-10 07:20:08.045 - Length: 90 bytes
+Source IP: 192.168.17.114, Destination IP: 192.168.16.36
+Source Port: N/A, Destination Port: N/A, Protocol: 17
+
+
+Packet 5 - Timestamp: 2016-12-10 07:20:18.048 - Length: 158 bytes
+Source IP: 192.168.17.114, Destination IP: 192.168.16.36
+Source Port: N/A, Destination Port: N/A, Protocol: 17
+
+============================== DATA/SMTP.PCAP ==============================
+
+Successfully read 60 packets from data/smtp.pcap
+
+Packet 1 - Timestamp: 2009-10-05 06:06:07.492 - Length: 76 bytes
+Source IP: 10.10.1.4, Destination IP: 10.10.1.1
+Source Port: N/A, Destination Port: N/A, Protocol: 17
+
+
+Packet 2 - Timestamp: 2009-10-05 06:06:07.526 - Length: 142 bytes
+Source IP: 10.10.1.1, Destination IP: 10.10.1.4
+Source Port: N/A, Destination Port: N/A, Protocol: 17
+
+
+Packet 3 - Timestamp: 2009-10-05 06:06:07.529 - Length: 62 bytes
+Source IP: 10.10.1.4, Destination IP: 74.53.140.153
+Source Port: 1470, Destination Port: 25, Protocol: 6
+
+
+Packet 4 - Timestamp: 2009-10-05 06:06:07.875 - Length: 62 bytes
+Source IP: 74.53.140.153, Destination IP: 10.10.1.4
+Source Port: 25, Destination Port: 1470, Protocol: 6
+
+
+Packet 5 - Timestamp: 2009-10-05 06:06:07.876 - Length: 54 bytes
+Source IP: 10.10.1.4, Destination IP: 74.53.140.153
+Source Port: 1470, Destination Port: 25, Protocol: 6
+
+
+Packet 6 - Timestamp: 2009-10-05 06:06:08.219 - Length: 235 bytes
+Source IP: 74.53.140.153, Destination IP: 10.10.1.4
+Source Port: 25, Destination Port: 1470, Protocol: 6
+
+
+Packet 7 - Timestamp: 2009-10-05 06:06:08.224 - Length: 63 bytes
+Source IP: 10.10.1.4, Destination IP: 74.53.140.153
+Source Port: 1470, Destination Port: 25, Protocol: 6
+
+
+Packet 8 - Timestamp: 2009-10-05 06:06:08.565 - Length: 60 bytes
+Source IP: 74.53.140.153, Destination IP: 10.10.1.4
+Source Port: 25, Destination Port: 1470, Protocol: 6
+
+
+Packet 9 - Timestamp: 2009-10-05 06:06:08.566 - Length: 191 bytes
+Source IP: 74.53.140.153, Destination IP: 10.10.1.4
+Source Port: 25, Destination Port: 1470, Protocol: 6
+
+
+Packet 10 - Timestamp: 2009-10-05 06:06:08.568 - Length: 66 bytes
+Source IP: 10.10.1.4, Destination IP: 74.53.140.153
+Source Port: 1470, Destination Port: 25, Protocol: 6
+
+
+Packet 11 - Timestamp: 2009-10-05 06:06:08.911 - Length: 72 bytes
+Source IP: 74.53.140.153, Destination IP: 10.10.1.4
+Source Port: 25, Destination Port: 1470, Protocol: 6
+
+
+Packet 12 - Timestamp: 2009-10-05 06:06:08.911 - Length: 84 bytes
+Source IP: 10.10.1.4, Destination IP: 74.53.140.153
+Source Port: 1470, Destination Port: 25, Protocol: 6
+
+
+Packet 13 - Timestamp: 2009-10-05 06:06:09.253 - Length: 72 bytes
+Source IP: 74.53.140.153, Destination IP: 10.10.1.4
+Source Port: 25, Destination Port: 1470, Protocol: 6
+
+
+Packet 14 - Timestamp: 2009-10-05 06:06:09.254 - Length: 72 bytes
+Source IP: 10.10.1.4, Destination IP: 74.53.140.153
+Source Port: 1470, Destination Port: 25, Protocol: 6
+
+
+Packet 15 - Timestamp: 2009-10-05 06:06:09.613 - Length: 84 bytes
+Source IP: 74.53.140.153, Destination IP: 10.10.1.4
+Source Port: 25, Destination Port: 1470, Protocol: 6
+
+
+Packet 16 - Timestamp: 2009-10-05 06:06:09.614 - Length: 90 bytes
+Source IP: 10.10.1.4, Destination IP: 74.53.140.153
+Source Port: 1470, Destination Port: 25, Protocol: 6
+
+
+Packet 17 - Timestamp: 2009-10-05 06:06:09.956 - Length: 62 bytes
+Source IP: 74.53.140.153, Destination IP: 10.10.1.4
+Source Port: 25, Destination Port: 1470, Protocol: 6
+
+
+Packet 18 - Timestamp: 2009-10-05 06:06:09.957 - Length: 93 bytes
+Source IP: 10.10.1.4, Destination IP: 74.53.140.153
+Source Port: 1470, Destination Port: 25, Protocol: 6
+
+
+Packet 19 - Timestamp: 2009-10-05 06:06:10.319 - Length: 68 bytes
+Source IP: 74.53.140.153, Destination IP: 10.10.1.4
+Source Port: 25, Destination Port: 1470, Protocol: 6
+
+
+Packet 20 - Timestamp: 2009-10-05 06:06:10.320 - Length: 60 bytes
+Source IP: 10.10.1.4, Destination IP: 74.53.140.153
+Source Port: 1470, Destination Port: 25, Protocol: 6
+
+
+Packet 21 - Timestamp: 2009-10-05 06:06:10.661 - Length: 110 bytes
+Source IP: 74.53.140.153, Destination IP: 10.10.1.4
+Source Port: 25, Destination Port: 1470, Protocol: 6
+
+
+Packet 22 - Timestamp: 2009-10-05 06:06:10.692 - Length: 1514 bytes
+Source IP: 10.10.1.4, Destination IP: 74.53.140.153
+Source Port: 1470, Destination Port: 25, Protocol: 6
+
+
+Packet 23 - Timestamp: 2009-10-05 06:06:10.692 - Length: 1514 bytes
+Source IP: 10.10.1.4, Destination IP: 74.53.140.153
+Source Port: 1470, Destination Port: 25, Protocol: 6
+
+
+Packet 24 - Timestamp: 2009-10-05 06:06:10.692 - Length: 1514 bytes
+Source IP: 10.10.1.4, Destination IP: 74.53.140.153
+Source Port: 1470, Destination Port: 25, Protocol: 6
+
+
+Packet 25 - Timestamp: 2009-10-05 06:06:10.692 - Length: 1514 bytes
+Source IP: 10.10.1.4, Destination IP: 74.53.140.153
+Source Port: 1470, Destination Port: 25, Protocol: 6
+
+
+Packet 26 - Timestamp: 2009-10-05 06:06:10.695 - Length: 590 bytes
+Source IP: 192.168.1.1, Destination IP: 10.10.1.4
+Source Port: N/A, Destination Port: N/A, Protocol: 1
+
+
+Packet 27 - Timestamp: 2009-10-05 06:06:10.695 - Length: 1506 bytes
+Source IP: 10.10.1.4, Destination IP: 74.53.140.153
+Source Port: 1470, Destination Port: 25, Protocol: 6
+
+
+Packet 28 - Timestamp: 2009-10-05 06:06:10.695 - Length: 590 bytes
+Source IP: 192.168.1.1, Destination IP: 10.10.1.4
+Source Port: N/A, Destination Port: N/A, Protocol: 1
+
+
+Packet 29 - Timestamp: 2009-10-05 06:06:10.696 - Length: 590 bytes
+Source IP: 192.168.1.1, Destination IP: 10.10.1.4
+Source Port: N/A, Destination Port: N/A, Protocol: 1
+
+
+Packet 30 - Timestamp: 2009-10-05 06:06:10.696 - Length: 590 bytes
+Source IP: 192.168.1.1, Destination IP: 10.10.1.4
+Source Port: N/A, Destination Port: N/A, Protocol: 1
+
+
+Packet 31 - Timestamp: 2009-10-05 06:06:11.104 - Length: 60 bytes
+Source IP: 74.53.140.153, Destination IP: 10.10.1.4
+Source Port: 25, Destination Port: 1470, Protocol: 6
+
+
+Packet 32 - Timestamp: 2009-10-05 06:06:11.104 - Length: 1506 bytes
+Source IP: 10.10.1.4, Destination IP: 74.53.140.153
+Source Port: 1470, Destination Port: 25, Protocol: 6
+
+
+Packet 33 - Timestamp: 2009-10-05 06:06:11.104 - Length: 1506 bytes
+Source IP: 10.10.1.4, Destination IP: 74.53.140.153
+Source Port: 1470, Destination Port: 25, Protocol: 6
+
+
+Packet 34 - Timestamp: 2009-10-05 06:06:11.469 - Length: 60 bytes
+Source IP: 74.53.140.153, Destination IP: 10.10.1.4
+Source Port: 25, Destination Port: 1470, Protocol: 6
+
+
+Packet 35 - Timestamp: 2009-10-05 06:06:11.469 - Length: 1506 bytes
+Source IP: 10.10.1.4, Destination IP: 74.53.140.153
+Source Port: 1470, Destination Port: 25, Protocol: 6
+
+
+Packet 36 - Timestamp: 2009-10-05 06:06:11.469 - Length: 1506 bytes
+Source IP: 10.10.1.4, Destination IP: 74.53.140.153
+Source Port: 1470, Destination Port: 25, Protocol: 6
+
+
+Packet 37 - Timestamp: 2009-10-05 06:06:11.494 - Length: 60 bytes
+Source IP: 74.53.140.153, Destination IP: 10.10.1.4
+Source Port: 25, Destination Port: 1470, Protocol: 6
+
+
+Packet 38 - Timestamp: 2009-10-05 06:06:11.494 - Length: 1506 bytes
+Source IP: 10.10.1.4, Destination IP: 74.53.140.153
+Source Port: 1470, Destination Port: 25, Protocol: 6
+
+
+Packet 39 - Timestamp: 2009-10-05 06:06:11.494 - Length: 1506 bytes
+Source IP: 10.10.1.4, Destination IP: 74.53.140.153
+Source Port: 1470, Destination Port: 25, Protocol: 6
+
+
+Packet 40 - Timestamp: 2009-10-05 06:06:11.834 - Length: 60 bytes
+Source IP: 74.53.140.153, Destination IP: 10.10.1.4
+Source Port: 25, Destination Port: 1470, Protocol: 6
+
+
+Packet 41 - Timestamp: 2009-10-05 06:06:11.834 - Length: 1506 bytes
+Source IP: 10.10.1.4, Destination IP: 74.53.140.153
+Source Port: 1470, Destination Port: 25, Protocol: 6
+
+
+Packet 42 - Timestamp: 2009-10-05 06:06:11.834 - Length: 1506 bytes
+Source IP: 10.10.1.4, Destination IP: 74.53.140.153
+Source Port: 1470, Destination Port: 25, Protocol: 6
+
+
+Packet 43 - Timestamp: 2009-10-05 06:06:11.858 - Length: 60 bytes
+Source IP: 74.53.140.153, Destination IP: 10.10.1.4
+Source Port: 25, Destination Port: 1470, Protocol: 6
+
+
+Packet 44 - Timestamp: 2009-10-05 06:06:11.858 - Length: 1506 bytes
+Source IP: 10.10.1.4, Destination IP: 74.53.140.153
+Source Port: 1470, Destination Port: 25, Protocol: 6
+
+
+Packet 45 - Timestamp: 2009-10-05 06:06:11.858 - Length: 83 bytes
+Source IP: 10.10.1.4, Destination IP: 74.53.140.153
+Source Port: 1470, Destination Port: 25, Protocol: 6
+
+
+Packet 46 - Timestamp: 2009-10-05 06:06:11.881 - Length: 60 bytes
+Source IP: 74.53.140.153, Destination IP: 10.10.1.4
+Source Port: 25, Destination Port: 1470, Protocol: 6
+
+
+Packet 47 - Timestamp: 2009-10-05 06:06:11.905 - Length: 60 bytes
+Source IP: 74.53.140.153, Destination IP: 10.10.1.4
+Source Port: 25, Destination Port: 1470, Protocol: 6
+
+
+Packet 48 - Timestamp: 2009-10-05 06:06:12.200 - Length: 60 bytes
+Source IP: 74.53.140.153, Destination IP: 10.10.1.4
+Source Port: 25, Destination Port: 1470, Protocol: 6
+
+
+Packet 49 - Timestamp: 2009-10-05 06:06:12.222 - Length: 60 bytes
+Source IP: 74.53.140.153, Destination IP: 10.10.1.4
+Source Port: 25, Destination Port: 1470, Protocol: 6
+
+
+Packet 50 - Timestamp: 2009-10-05 06:06:12.246 - Length: 60 bytes
+Source IP: 74.53.140.153, Destination IP: 10.10.1.4
+Source Port: 25, Destination Port: 1470, Protocol: 6
+
+
+Packet 51 - Timestamp: 2009-10-05 06:06:12.248 - Length: 60 bytes
+Source IP: 74.53.140.153, Destination IP: 10.10.1.4
+Source Port: 25, Destination Port: 1470, Protocol: 6
+
+
+Packet 52 - Timestamp: 2009-10-05 06:06:12.248 - Length: 82 bytes
+Source IP: 74.53.140.153, Destination IP: 10.10.1.4
+Source Port: 25, Destination Port: 1470, Protocol: 6
+
+
+Packet 53 - Timestamp: 2009-10-05 06:06:12.387 - Length: 54 bytes
+Source IP: 10.10.1.4, Destination IP: 74.53.140.153
+Source Port: 1470, Destination Port: 25, Protocol: 6
+
+
+Packet 54 - Timestamp: 2009-10-05 06:06:14.763 - Length: 60 bytes
+Source IP: 10.10.1.4, Destination IP: 74.53.140.153
+Source Port: 1470, Destination Port: 25, Protocol: 6
+
+
+Packet 55 - Timestamp: 2009-10-05 06:06:14.764 - Length: 54 bytes
+Source IP: 10.10.1.4, Destination IP: 74.53.140.153
+Source Port: 1470, Destination Port: 25, Protocol: 6
+
+
+Packet 56 - Timestamp: 2009-10-05 06:06:15.105 - Length: 102 bytes
+Source IP: 74.53.140.153, Destination IP: 10.10.1.4
+Source Port: 25, Destination Port: 1470, Protocol: 6
+
+
+Packet 57 - Timestamp: 2009-10-05 06:06:15.105 - Length: 60 bytes
+Source IP: 74.53.140.153, Destination IP: 10.10.1.4
+Source Port: 25, Destination Port: 1470, Protocol: 6
+
+
+Packet 58 - Timestamp: 2009-10-05 06:06:15.106 - Length: 54 bytes
+Source IP: 10.10.1.4, Destination IP: 74.53.140.153
+Source Port: 1470, Destination Port: 25, Protocol: 6
+
+
+Packet 59 - Timestamp: 2009-10-05 06:06:15.106 - Length: 60 bytes
+Source IP: 74.53.140.153, Destination IP: 10.10.1.4
+Source Port: 25, Destination Port: 1470, Protocol: 6
+
+
+Packet 60 - Timestamp: 2009-10-05 06:06:16.690 - Length: 243 bytes
+Source IP: 10.10.1.20, Destination IP: 10.10.1.255
+Source Port: N/A, Destination Port: N/A, Protocol: 17
+
 ============================== DATA/TEARDROP.CAP ==============================
 
 Successfully read 17 packets from data/teardrop.cap
@@ -87,19 +469,4 @@ Source Port: N/A, Destination Port: N/A, Protocol: 1
 Packet 17 - Timestamp: 1999-09-09 04:11:43.978 - Length: 98 bytes
 Source IP: 10.0.0.254, Destination IP: 10.0.0.6
 Source Port: N/A, Destination Port: N/A, Protocol: 1
-
-============================== DATA/EXAMPLE-TPTK-ATTACK.PCAPNG ==============================
-
-Successfully read 285 packets from data/example-tptk-attack.pcapng
-Blocking traffic for potential attackers.
-
-Potential Attackers detected in data/example-tptk-attack.pcapng
-  Source MAC: 02:00:00:00:00:00 (Packets: 214)
-  Blocked: 02:00:00:00:00:00
-
-  Source MAC: 02:00:00:00:01:00 (Packets: 50)
-  Blocked: 02:00:00:00:01:00
-
-  Source MAC: None (Packets: 21)
-  Blocked: None
 

@@ -7,12 +7,21 @@ from datetime import datetime
 # pcap library
 from scapy.all import *
 
-""" ********************************************** LOGGING FUNCTIONS ********************************************** """
-def error_logger(error=None):
-    error_msg = f'{datetime.now()} - An error occurred: {error}\n{traceback.format_exc()}'
-    logging.error(error_msg)
+# header vars
+FILES = ['example-ft.pcapng', 'example-tptk-attack.pcapng', 'ipv4frags.pcap', 'nf9-juniper-vmx.pcapng.cap', 'smtp.pcap', 'teardrop.cap']
 
-# def init_info_logger():
+""" ********************************************** LOGGING FUNCTIONS ********************************************** """
+# initiate error logger
+error_logger = logging.getLogger('error_logger')
+error_logger.setLevel(logging.ERROR)
+error_logger.propagate = False
+file_handler = logging.FileHandler('error.log', mode='w')
+# formatter
+log_formatter = logging.Formatter('%(asctime)s %(levelname)s:%(message)s')
+file_handler.setFormatter(log_formatter) # configure file_handler
+error_logger.addHandler(file_handler)
+
+# initiate info logger
 logging.basicConfig(filename='error.log', level=logging.ERROR, format='%(asctime)s %(levelname)s:%(message)s') # errors
 # print statements
 info_logger = logging.getLogger('info_logger')
@@ -21,21 +30,32 @@ info_logger.propagate = False
 # file handler
 file_handler = logging.FileHandler('info.log',  mode='w') # reset every run
 file_handler.setLevel(logging.INFO)
-# formatter
-# log_formatter = logging.Formatter('%(asctime)s %(levelname)s:%(message)s')
-# file_handler.setFormatter(log_formatter) # configure file_handler
+
 info_logger.addHandler(file_handler)
 
 info_logger.info("************************************* PCAP FILE ANALYSIS *************************************\n")
 
 """ ********************************************** PCAP FUNCTIONS ********************************************** """
+
+# report_pcap
+# threshold: modifier to adjust level of scrutiny (automatically set to 1)
+def report_pcap(attackers, pcap_file, threshold=1):
+    if any(data['count'] > threshold for data in attackers.values()):
+        info_logger.info(f"\nPotential Attackers detected in {pcap_file}")
+        for mac, data in attackers.items():
+            if data["count"] > threshold:
+                info_logger.info(f"  Source MAC: {mac} (Packets: {data['count']})")
+                info_logger.info(f"  Blocked: {mac}\n")
+
+
+# process_pcap
 def process_pcap(pcap_file, block_traffic=False):
     try:
         packets = rdpcap(pcap_file)
         info_logger.info(f'============================== {pcap_file.upper()} ==============================\n')
         info_logger.info(f"Successfully read {len(packets)} packets from {pcap_file}")
     except Exception as e:
-        error_logger(f"Error reading {pcap_file}: {e}")
+        error_logger.error(f"Error reading {pcap_file}: {e}")
         return None
 
     attackers = {}
@@ -100,36 +120,12 @@ def process_pcap(pcap_file, block_traffic=False):
 
 """ ********************************************** MAIN ********************************************** """
 def main():
-    # init_info_logger()
-    # Specify the names of your PCAP files
-    pcap_file1 = "data/teardrop.cap"
-    pcap_file2 = "data/example-tptk-attack.pcapng"
+    for path in FILES:
+        path = f'data/{path}'
+        attackers = process_pcap(path, block_traffic=True)
+        report_pcap(attackers, path)
 
-    # Process the first pcap file
-    attackers1 = process_pcap(pcap_file1, block_traffic=True)
 
-    # Process the second pcap file
-    attackers2 = process_pcap(pcap_file2, block_traffic=True)
-
-    # Combine results or perform further analysis as needed
-    # For simplicity, this example just prints the results
-    threshold = 1
-
-    # Print or report potential attackers for the first file
-    if any(data["count"] > threshold for data in attackers1.values()):
-        info_logger.info(f"\nPotential Attackers detected in {pcap_file1}")
-        for mac, data in attackers1.items():
-            if data["count"] > threshold:
-                info_logger.info(f"  Source MAC: {mac} (Packets: {data['count']})")
-                info_logger.info(f"  Blocked: {mac}\n")
-
-    # Print or report potential attackers for the second file
-    if any(data["count"] > threshold for data in attackers2.values()):
-        info_logger.info(f"\nPotential Attackers detected in {pcap_file2}")
-        for mac, data in attackers2.items():
-            if data["count"] > threshold:
-                info_logger.info(f"  Source MAC: {mac} (Packets: {data['count']})")
-                info_logger.info(f"  Blocked: {mac}\n")
 
 
 if __name__ == '__main__':
