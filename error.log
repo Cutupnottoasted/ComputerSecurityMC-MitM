@@ -1,0 +1,180 @@
+2023-11-26 15:51:07,832 ERROR:2023-11-26 15:51:07.829305 - An error occurred: Error reading data/teardrop.cap: [Errno 2] No such file or directory: 'data/teardrop.cap'
+Traceback (most recent call last):
+  File "C:\Users\Codizzle\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\scapy\utils.py", line 1209, in open
+    fdesc = gzip.open(filename, "rb")  # type: _ByteStream
+            ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.1776.0_x64__qbz5n2kfra8p0\Lib\gzip.py", line 58, in open
+    binary_file = GzipFile(filename, gz_mode, compresslevel)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.1776.0_x64__qbz5n2kfra8p0\Lib\gzip.py", line 174, in __init__
+    fileobj = self.myfileobj = builtins.open(filename, mode or 'rb')
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'data/teardrop.cap'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\Codizzle\gitKraken\ComputerSecurityMC-MitM\wif-sniffer\pcapScrape.py", line 32, in process_pcap
+    packets = rdpcap(pcap_file)
+              ^^^^^^^^^^^^^^^^^
+  File "C:\Users\Codizzle\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\scapy\utils.py", line 1144, in rdpcap
+    with PcapReader(filename) as fdesc:  # type: ignore
+         ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Codizzle\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\scapy\utils.py", line 1179, in __call__
+    filename, fdesc, magic = cls.open(filename)
+                             ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Codizzle\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\scapy\utils.py", line 1212, in open
+    fdesc = open(filename, "rb")
+            ^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'data/teardrop.cap'
+
+2023-11-26 15:51:07,834 ERROR:2023-11-26 15:51:07.833304 - An error occurred: Error reading data/example-tptk-attack.pcapng: [Errno 2] No such file or directory: 'data/example-tptk-attack.pcapng'
+Traceback (most recent call last):
+  File "C:\Users\Codizzle\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\scapy\utils.py", line 1209, in open
+    fdesc = gzip.open(filename, "rb")  # type: _ByteStream
+            ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.1776.0_x64__qbz5n2kfra8p0\Lib\gzip.py", line 58, in open
+    binary_file = GzipFile(filename, gz_mode, compresslevel)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.1776.0_x64__qbz5n2kfra8p0\Lib\gzip.py", line 174, in __init__
+    fileobj = self.myfileobj = builtins.open(filename, mode or 'rb')
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'data/example-tptk-attack.pcapng'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\Codizzle\gitKraken\ComputerSecurityMC-MitM\wif-sniffer\pcapScrape.py", line 32, in process_pcap
+    packets = rdpcap(pcap_file)
+              ^^^^^^^^^^^^^^^^^
+  File "C:\Users\Codizzle\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\scapy\utils.py", line 1144, in rdpcap
+    with PcapReader(filename) as fdesc:  # type: ignore
+         ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Codizzle\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\scapy\utils.py", line 1179, in __call__
+    filename, fdesc, magic = cls.open(filename)
+                             ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Codizzle\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\scapy\utils.py", line 1212, in open
+    fdesc = open(filename, "rb")
+            ^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'data/example-tptk-attack.pcapng'
+
+2023-11-26 15:51:23,787 ERROR:2023-11-26 15:51:23.785319 - An error occurred: Error reading data/teardrop.cap: [Errno 2] No such file or directory: 'data/teardrop.cap'
+Traceback (most recent call last):
+  File "C:\Users\Codizzle\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\scapy\utils.py", line 1209, in open
+    fdesc = gzip.open(filename, "rb")  # type: _ByteStream
+            ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.1776.0_x64__qbz5n2kfra8p0\Lib\gzip.py", line 58, in open
+    binary_file = GzipFile(filename, gz_mode, compresslevel)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.1776.0_x64__qbz5n2kfra8p0\Lib\gzip.py", line 174, in __init__
+    fileobj = self.myfileobj = builtins.open(filename, mode or 'rb')
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'data/teardrop.cap'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\Codizzle\gitKraken\ComputerSecurityMC-MitM\wif-sniffer\pcapScrape.py", line 32, in process_pcap
+    packets = rdpcap(pcap_file)
+              ^^^^^^^^^^^^^^^^^
+  File "C:\Users\Codizzle\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\scapy\utils.py", line 1144, in rdpcap
+    with PcapReader(filename) as fdesc:  # type: ignore
+         ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Codizzle\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\scapy\utils.py", line 1179, in __call__
+    filename, fdesc, magic = cls.open(filename)
+                             ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Codizzle\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\scapy\utils.py", line 1212, in open
+    fdesc = open(filename, "rb")
+            ^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'data/teardrop.cap'
+
+2023-11-26 15:51:23,788 ERROR:2023-11-26 15:51:23.787320 - An error occurred: Error reading data/example-tptk-attack.pcapng: [Errno 2] No such file or directory: 'data/example-tptk-attack.pcapng'
+Traceback (most recent call last):
+  File "C:\Users\Codizzle\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\scapy\utils.py", line 1209, in open
+    fdesc = gzip.open(filename, "rb")  # type: _ByteStream
+            ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.1776.0_x64__qbz5n2kfra8p0\Lib\gzip.py", line 58, in open
+    binary_file = GzipFile(filename, gz_mode, compresslevel)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.1776.0_x64__qbz5n2kfra8p0\Lib\gzip.py", line 174, in __init__
+    fileobj = self.myfileobj = builtins.open(filename, mode or 'rb')
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'data/example-tptk-attack.pcapng'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\Codizzle\gitKraken\ComputerSecurityMC-MitM\wif-sniffer\pcapScrape.py", line 32, in process_pcap
+    packets = rdpcap(pcap_file)
+              ^^^^^^^^^^^^^^^^^
+  File "C:\Users\Codizzle\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\scapy\utils.py", line 1144, in rdpcap
+    with PcapReader(filename) as fdesc:  # type: ignore
+         ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Codizzle\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\scapy\utils.py", line 1179, in __call__
+    filename, fdesc, magic = cls.open(filename)
+                             ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Codizzle\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\scapy\utils.py", line 1212, in open
+    fdesc = open(filename, "rb")
+            ^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'data/example-tptk-attack.pcapng'
+
+2023-11-26 15:51:38,220 ERROR:2023-11-26 15:51:38.218214 - An error occurred: Error reading data/teardrop.cap: [Errno 2] No such file or directory: 'data/teardrop.cap'
+Traceback (most recent call last):
+  File "C:\Users\Codizzle\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\scapy\utils.py", line 1209, in open
+    fdesc = gzip.open(filename, "rb")  # type: _ByteStream
+            ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.1776.0_x64__qbz5n2kfra8p0\Lib\gzip.py", line 58, in open
+    binary_file = GzipFile(filename, gz_mode, compresslevel)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.1776.0_x64__qbz5n2kfra8p0\Lib\gzip.py", line 174, in __init__
+    fileobj = self.myfileobj = builtins.open(filename, mode or 'rb')
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'data/teardrop.cap'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\Codizzle\gitKraken\ComputerSecurityMC-MitM\wif-sniffer\pcapScrape.py", line 32, in process_pcap
+    packets = rdpcap(pcap_file)
+              ^^^^^^^^^^^^^^^^^
+  File "C:\Users\Codizzle\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\scapy\utils.py", line 1144, in rdpcap
+    with PcapReader(filename) as fdesc:  # type: ignore
+         ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Codizzle\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\scapy\utils.py", line 1179, in __call__
+    filename, fdesc, magic = cls.open(filename)
+                             ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Codizzle\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\scapy\utils.py", line 1212, in open
+    fdesc = open(filename, "rb")
+            ^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'data/teardrop.cap'
+
+2023-11-26 15:51:38,221 ERROR:2023-11-26 15:51:38.220215 - An error occurred: Error reading data/example-tptk-attack.pcapng: [Errno 2] No such file or directory: 'data/example-tptk-attack.pcapng'
+Traceback (most recent call last):
+  File "C:\Users\Codizzle\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\scapy\utils.py", line 1209, in open
+    fdesc = gzip.open(filename, "rb")  # type: _ByteStream
+            ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.1776.0_x64__qbz5n2kfra8p0\Lib\gzip.py", line 58, in open
+    binary_file = GzipFile(filename, gz_mode, compresslevel)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.1776.0_x64__qbz5n2kfra8p0\Lib\gzip.py", line 174, in __init__
+    fileobj = self.myfileobj = builtins.open(filename, mode or 'rb')
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'data/example-tptk-attack.pcapng'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\Codizzle\gitKraken\ComputerSecurityMC-MitM\wif-sniffer\pcapScrape.py", line 32, in process_pcap
+    packets = rdpcap(pcap_file)
+              ^^^^^^^^^^^^^^^^^
+  File "C:\Users\Codizzle\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\scapy\utils.py", line 1144, in rdpcap
+    with PcapReader(filename) as fdesc:  # type: ignore
+         ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Codizzle\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\scapy\utils.py", line 1179, in __call__
+    filename, fdesc, magic = cls.open(filename)
+                             ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Codizzle\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\scapy\utils.py", line 1212, in open
+    fdesc = open(filename, "rb")
+            ^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'data/example-tptk-attack.pcapng'
+

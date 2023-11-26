@@ -7,7 +7,7 @@ from datetime import datetime
 # pcap library
 from scapy.all import *
 
-# logging functions
+""" ********************************************** LOGGING FUNCTIONS ********************************************** """
 def error_logger(error=None):
     error_msg = f'{datetime.now()} - An error occurred: {error}\n{traceback.format_exc()}'
     logging.error(error_msg)
@@ -22,14 +22,17 @@ info_logger.propagate = False
 file_handler = logging.FileHandler('info.log',  mode='w') # reset every run
 file_handler.setLevel(logging.INFO)
 # formatter
-log_formatter = logging.Formatter('%(asctime)s %(levelname)s:%(message)s')
-file_handler.setFormatter(log_formatter) # configure file_handler
+# log_formatter = logging.Formatter('%(asctime)s %(levelname)s:%(message)s')
+# file_handler.setFormatter(log_formatter) # configure file_handler
 info_logger.addHandler(file_handler)
 
+info_logger.info("************************************* PCAP FILE ANALYSIS *************************************\n")
 
+""" ********************************************** PCAP FUNCTIONS ********************************************** """
 def process_pcap(pcap_file, block_traffic=False):
     try:
         packets = rdpcap(pcap_file)
+        info_logger.info(f'============================== {pcap_file.upper()} ==============================\n')
         info_logger.info(f"Successfully read {len(packets)} packets from {pcap_file}")
     except Exception as e:
         error_logger(f"Error reading {pcap_file}: {e}")
@@ -55,7 +58,7 @@ def process_pcap(pcap_file, block_traffic=False):
 
             if Dot11WEP in packet and packet[Dot11WEP].key_info & 64:
                 reason = "Potential KRACK attack"
-                info_logger(f"\nPacket {packet_number} flagged as potential attacker - Reason: {reason}")
+                info_logger.info(f"\nPacket {packet_number} flagged as potential attacker - Reason: {reason}")
                 if block_traffic:
                     info_logger.info(f"Blocking traffic for this packet.")
                     info_logger.info(f"User dropped: {src_mac}")
@@ -71,7 +74,7 @@ def process_pcap(pcap_file, block_traffic=False):
                 # Print the entire packet details for non-Dot11 packets
                 info_logger.info(f"\nPacket {packet_number} - Timestamp: {formatted_time} - Length: {len(packet)} bytes")
                 info_logger.info(f"Source IP: {src_ip}, Destination IP: {dst_ip}")
-                info_logger.info(f"Source Port: {src_port}, Destination Port: {dst_port}, Protocol: {protocol}")
+                info_logger.info(f"Source Port: {src_port}, Destination Port: {dst_port}, Protocol: {protocol}\n")
             elif block_traffic:
                 reason = "Handshake failed"  # Simulated reason for blocking
                 info_logger.info(f"\nPacket {packet_number} flagged as potential attacker - Reason: {reason}")
@@ -83,7 +86,7 @@ def process_pcap(pcap_file, block_traffic=False):
                     info_logger.info(f"\nPacket {packet_number} - Potential Attacker Details:")
                     info_logger.info(f"Source IP: {src_ip}, Destination IP: {dst_ip}")
                     info_logger.info(f"Source Port: {src_port}, Destination Port: {dst_port}, Protocol: {protocol}")
-
+    
     for packet_number, packet in enumerate(packets, 1):
         process_packet(packet, packet_number)
 
@@ -94,6 +97,8 @@ def process_pcap(pcap_file, block_traffic=False):
 
     return attackers
 
+
+""" ********************************************** MAIN ********************************************** """
 def main():
     # init_info_logger()
     # Specify the names of your PCAP files
