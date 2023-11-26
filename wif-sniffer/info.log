@@ -1,0 +1,82 @@
+2023-11-26 15:40:21,321 INFO:Successfully read 17 packets from data/teardrop.cap
+2023-11-26 15:40:21,321 INFO:
+Packet 1 - Timestamp: 1999-09-09 04:10:56.001 - Length: 60 bytes
+2023-11-26 15:40:21,321 INFO:Source IP: N/A, Destination IP: N/A
+2023-11-26 15:40:21,321 INFO:Source Port: N/A, Destination Port: N/A, Protocol: N/A
+2023-11-26 15:40:21,322 INFO:
+Packet 2 - Timestamp: 1999-09-09 04:11:06.001 - Length: 60 bytes
+2023-11-26 15:40:21,322 INFO:Source IP: N/A, Destination IP: N/A
+2023-11-26 15:40:21,322 INFO:Source Port: N/A, Destination Port: N/A, Protocol: N/A
+2023-11-26 15:40:21,322 INFO:
+Packet 3 - Timestamp: 1999-09-09 04:11:16.001 - Length: 60 bytes
+2023-11-26 15:40:21,322 INFO:Source IP: N/A, Destination IP: N/A
+2023-11-26 15:40:21,322 INFO:Source Port: N/A, Destination Port: N/A, Protocol: N/A
+2023-11-26 15:40:21,322 INFO:
+Packet 4 - Timestamp: 1999-09-09 04:11:26.062 - Length: 60 bytes
+2023-11-26 15:40:21,322 INFO:Source IP: N/A, Destination IP: N/A
+2023-11-26 15:40:21,322 INFO:Source Port: N/A, Destination Port: N/A, Protocol: N/A
+2023-11-26 15:40:21,322 INFO:
+Packet 5 - Timestamp: 1999-09-09 04:11:26.070 - Length: 333 bytes
+2023-11-26 15:40:21,322 INFO:Source IP: N/A, Destination IP: N/A
+2023-11-26 15:40:21,322 INFO:Source Port: N/A, Destination Port: N/A, Protocol: N/A
+2023-11-26 15:40:21,322 INFO:
+Packet 6 - Timestamp: 1999-09-09 04:11:26.294 - Length: 78 bytes
+2023-11-26 15:40:21,322 INFO:Source IP: 10.0.0.6, Destination IP: 151.164.1.8
+2023-11-26 15:40:21,323 INFO:Source Port: N/A, Destination Port: N/A, Protocol: 17
+2023-11-26 15:40:21,323 INFO:
+Packet 7 - Timestamp: 1999-09-09 04:11:26.613 - Length: 289 bytes
+2023-11-26 15:40:21,323 INFO:Source IP: 151.164.1.8, Destination IP: 10.0.0.6
+2023-11-26 15:40:21,323 INFO:Source Port: N/A, Destination Port: N/A, Protocol: 17
+2023-11-26 15:40:21,323 INFO:
+Packet 8 - Timestamp: 1999-09-09 04:11:26.616 - Length: 70 bytes
+2023-11-26 15:40:21,323 INFO:Source IP: 10.1.1.1, Destination IP: 129.111.30.27
+2023-11-26 15:40:21,323 INFO:Source Port: N/A, Destination Port: N/A, Protocol: 17
+2023-11-26 15:40:21,323 INFO:
+Packet 9 - Timestamp: 1999-09-09 04:11:26.616 - Length: 38 bytes
+2023-11-26 15:40:21,323 INFO:Source IP: 10.1.1.1, Destination IP: 129.111.30.27
+2023-11-26 15:40:21,323 INFO:Source Port: N/A, Destination Port: N/A, Protocol: 17
+2023-11-26 15:40:21,323 INFO:
+Packet 10 - Timestamp: 1999-09-09 04:11:31.286 - Length: 42 bytes
+2023-11-26 15:40:21,324 INFO:Source IP: N/A, Destination IP: N/A
+2023-11-26 15:40:21,324 INFO:Source Port: N/A, Destination Port: N/A, Protocol: N/A
+2023-11-26 15:40:21,324 INFO:
+Packet 11 - Timestamp: 1999-09-09 04:11:32.286 - Length: 42 bytes
+2023-11-26 15:40:21,324 INFO:Source IP: N/A, Destination IP: N/A
+2023-11-26 15:40:21,324 INFO:Source Port: N/A, Destination Port: N/A, Protocol: N/A
+2023-11-26 15:40:21,324 INFO:
+Packet 12 - Timestamp: 1999-09-09 04:11:33.286 - Length: 42 bytes
+2023-11-26 15:40:21,324 INFO:Source IP: N/A, Destination IP: N/A
+2023-11-26 15:40:21,324 INFO:Source Port: N/A, Destination Port: N/A, Protocol: N/A
+2023-11-26 15:40:21,324 INFO:
+Packet 13 - Timestamp: 1999-09-09 04:11:34.286 - Length: 42 bytes
+2023-11-26 15:40:21,324 INFO:Source IP: N/A, Destination IP: N/A
+2023-11-26 15:40:21,324 INFO:Source Port: N/A, Destination Port: N/A, Protocol: N/A
+2023-11-26 15:40:21,324 INFO:
+Packet 14 - Timestamp: 1999-09-09 04:11:34.288 - Length: 60 bytes
+2023-11-26 15:40:21,324 INFO:Source IP: N/A, Destination IP: N/A
+2023-11-26 15:40:21,324 INFO:Source Port: N/A, Destination Port: N/A, Protocol: N/A
+2023-11-26 15:40:21,325 INFO:
+Packet 15 - Timestamp: 1999-09-09 04:11:36.062 - Length: 60 bytes
+2023-11-26 15:40:21,325 INFO:Source IP: N/A, Destination IP: N/A
+2023-11-26 15:40:21,325 INFO:Source Port: N/A, Destination Port: N/A, Protocol: N/A
+2023-11-26 15:40:21,325 INFO:
+Packet 16 - Timestamp: 1999-09-09 04:11:43.974 - Length: 98 bytes
+2023-11-26 15:40:21,325 INFO:Source IP: 10.0.0.6, Destination IP: 10.0.0.254
+2023-11-26 15:40:21,325 INFO:Source Port: N/A, Destination Port: N/A, Protocol: 1
+2023-11-26 15:40:21,325 INFO:
+Packet 17 - Timestamp: 1999-09-09 04:11:43.978 - Length: 98 bytes
+2023-11-26 15:40:21,325 INFO:Source IP: 10.0.0.254, Destination IP: 10.0.0.6
+2023-11-26 15:40:21,325 INFO:Source Port: N/A, Destination Port: N/A, Protocol: 1
+2023-11-26 15:40:21,758 INFO:Successfully read 285 packets from data/example-tptk-attack.pcapng
+2023-11-26 15:40:21,778 INFO:Blocking traffic for potential attackers.
+2023-11-26 15:40:21,778 INFO:
+Potential Attackers detected in data/example-tptk-attack.pcapng
+2023-11-26 15:40:21,778 INFO:  Source MAC: 02:00:00:00:00:00 (Packets: 214)
+2023-11-26 15:40:21,778 INFO:  Blocked: 02:00:00:00:00:00
+
+2023-11-26 15:40:21,778 INFO:  Source MAC: 02:00:00:00:01:00 (Packets: 50)
+2023-11-26 15:40:21,778 INFO:  Blocked: 02:00:00:00:01:00
+
+2023-11-26 15:40:21,778 INFO:  Source MAC: None (Packets: 21)
+2023-11-26 15:40:21,778 INFO:  Blocked: None
+
