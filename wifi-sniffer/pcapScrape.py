@@ -5,9 +5,13 @@ import logging
 from datetime import datetime
 # pcap library
 from scapy.all import *
+from scapy.layers.dot11 import Dot11
+from scapy.layers.eap import EAPOL
+
 
 # header vars
-FILES = ['example-ft.pcapng', 'example-tptk-attack.pcapng', 'ipv4frags.pcap', 'nf9-juniper-vmx.pcapng.cap', 'smtp.pcap', 'teardrop.cap', 'nf9-error.pcapng.cap']
+# 'example-ft.pcapng', 'ipv4frags.pcap', 'nf9-juniper-vmx.pcapng.cap', 'smtp.pcap', 'teardrop.cap', 'nf9-error.pcapng.cap'
+FILES = ['example-tptk-attack.pcapng']
 
 """ ********************************************** INITIATE LOGGING ********************************************** """
 # initiate error logger
@@ -35,23 +39,16 @@ info_logger.addHandler(file_handler)
 info_logger.info("************************************* PCAP FILE ANALYSIS *************************************\n")
 
 """ ********************************************** PCAP FUNCTIONS ********************************************** """
-# def extract_packet_details(packet):
-#     if packet.haslayer(Dot11):
-#         attributes = {}
-#         for field in packet[Dot11].fields_desc:
-#             field_name = field.name
-#             field_value = packet[Dot11].fields.get(field_name, None)
-#             attributes[field_name] = field_value 
-    
-#     info_logger.info('************************************* PACKET DETAIL *************************************\n')
-#     for att, value in attributes.items():
-#         info_logger.info(f'{att}: {value}')
+def extract_nonce(raw_payload):
+    start_offset = 13
+    length = 32
+    nonce = raw_payload[start_offset:start_offset + length]
+    return nonce.hex()
 
-def extract_packet_details(packet):
+def extract_packet_details(packet, packet_number):
     layer_details = {}
     cur_layer = packet
-    layer_count = 0 
-
+    
     while cur_layer:
         layer_name = cur_layer.name
         layer_fields = {}
@@ -61,13 +58,18 @@ def extract_packet_details(packet):
                 field_name = field.name
                 field_value = cur_layer.fields.get(field_name, None)
                 layer_fields[field_name] = field_value
-        layer_details[f'Layer_{layer_count}_{layer_name}'] = layer_fields
+                
+        if layer_name == 'EAPOL':
+            nonce = extract_nonce(cur_layer.load)
+            layer_fields['nonce'] = nonce
+
+        layer_details[f'Layer_{layer_name}'] = layer_fields
         cur_layer = cur_layer.payload
-        layer_count += 1 
+
 
     info_logger.info('************************************* PACKET DETAIL *************************************\n')
     for layer, fields in layer_details.items():
-        info_logger.info(f'{layer}:')
+        info_logger.info(f'{packet_number}: {layer}:')
         for field_name, field_value in fields.items():
             info_logger.info(f' {field_name}: {field_value}')
         info_logger.info('\n')
@@ -107,7 +109,7 @@ def process_pcap(pcap_file, block_traffic=False):
 
         # packet extraction
         if Dot11 in packet: 
-            extract_packet_details(packet)
+            extract_packet_details(packet, packet_number)
             # get mac addresses
             src_mac = packet[Dot11].addr2 
             dst_mac = packet[Dot11].addr1
@@ -150,7 +152,8 @@ def process_pcap(pcap_file, block_traffic=False):
                     info_logger.info(f"Source Port: {src_port}, Destination Port: {dst_port}, Protocol: {protocol}")
     
     for packet_number, packet in enumerate(packets, 1):
-        process_packet(packet, packet_number)
+        if packet_number < 102 and packet_number > 85:
+            process_packet(packet, packet_number)
 
     # Print blocking simulation if there are potential attackers and block_traffic is enabled
     if block_traffic and any(data["count"] > 0 for data in attackers.values()):
