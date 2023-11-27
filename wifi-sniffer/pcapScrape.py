@@ -192,27 +192,27 @@ def pull_eapol(pcap_info):
     return potential_attacks
 
      
-def main():
-    for pcap_file in FILES:
-        pcap_file = f'data/{pcap_file}'
-        pcap_info = process_pcap(pcap_file)
-        analyze_packets(pcap_info)
+def main(pcap_file):
 
-        potential_attacks = pull_probe_requests(pcap_info)
-        for attack in potential_attacks:
-            audit, flag = audit_probe_requests(attack)
-            security_logger.warning(f'{audit} -- Block Traffic: {flag}')
-            packet_numbers = [num for num, _ in attack]
-            security_logger.warning(f'Suspicious Packets in {pcap_file}: {packet_numbers}\n')
+    pcap_file = f'data/{pcap_file}'
+    pcap_info = process_pcap(pcap_file)
+    analyze_packets(pcap_info)
 
-        potential_attacks = pull_eapol(pcap_info)
-        for attack in potential_attacks:
-            audit, flag = audit_eapol(attack)
-            if audit:
-                security_logger.warning(f'{audit} -- Block Traffic: {flag} File: {pcap_file}\n')
+    potential_attacks = pull_probe_requests(pcap_info)
+    for attack in potential_attacks:
+        audit, flag = audit_probe_requests(attack)
+        security_logger.warning(f'{audit} -- Block Traffic: {flag}')
+        packet_numbers = [num for num, _ in attack]
+        security_logger.warning(f'Suspicious Packets in {pcap_file}: {packet_numbers}\n')
 
-        info_logger.info(f'============================== {pcap_file.upper()} ==============================\n')
-        security_logger.warning(f'============================== {pcap_file.upper()} ==============================\n')
+    potential_attacks = pull_eapol(pcap_info)
+    for attack in potential_attacks:
+        audit, flag = audit_eapol(attack)
+        if audit:
+            security_logger.warning(f'{audit} -- Block Traffic: {flag} File: {pcap_file}\n')
+
+    info_logger.info(f'============================== {pcap_file.upper()} ==============================\n')
+    security_logger.warning(f'============================== {pcap_file.upper()} ==============================\n')
 
 if __name__ == '__main__':
     main()
