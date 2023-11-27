@@ -58,7 +58,7 @@ def extract_packet_details(packet, packet_number):
                 field_name = field.name
                 field_value = cur_layer.fields.get(field_name, None)
                 layer_fields[field_name] = field_value
-                
+
         if layer_name == 'EAPOL':
             nonce = extract_nonce(cur_layer.load)
             layer_fields['nonce'] = nonce
@@ -71,7 +71,10 @@ def extract_packet_details(packet, packet_number):
     for layer, fields in layer_details.items():
         info_logger.info(f'{packet_number}: {layer}:')
         for field_name, field_value in fields.items():
-            info_logger.info(f' {field_name}: {field_value}')
+            if field_value == None:
+                continue
+            else:
+                info_logger.info(f' {field_name}: {field_value}')
         info_logger.info('\n')
 
 

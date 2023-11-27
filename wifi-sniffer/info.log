@@ -11,58 +11,10 @@ Successfully read 285 packets from data/example-tptk-attack.pcapng
  len: 14
  present: Flags+Channel
  Ext: []
- mac_timestamp: None
- Flags: 
- Rate: None
  ChannelFrequency: 2412
  ChannelFlags: 2GHz
- dBm_AntSignal: None
- dBm_AntNoise: None
- Lock_Quality: None
- Antenna: None
- RXFlags: None
- TXFlags: None
- ChannelPlusFlags: None
- ChannelPlusFrequency: None
- ChannelPlusNumber: None
- knownMCS: None
- Ness_LSB: None
- STBC_streams: None
- FEC_type: None
- HT_format: None
- guard_interval: None
- MCS_bandwidth: None
- MCS_index: None
- A_MPDU_ref: None
- A_MPDU_flags: None
- KnownVHT: None
- PresentVHT: None
- VHT_bandwidth: None
- mcs_nss: None
- GroupID: None
- PartialAID: None
- timestamp: None
- ts_accuracy: None
- ts_unit: None
- ts_position: None
- ts_flags: None
- he_data1: None
- he_data2: None
- he_data3: None
- he_data4: None
- he_data5: None
- he_data6: None
- hemu_flags1: None
- hemu_flags2: None
  RU_channel1: []
  RU_channel2: []
- hemuou_per_user_1: None
- hemuou_per_user_2: None
- hemuou_per_user_position: None
- hemuou_per_user_known: None
- lsig_data1: None
- lsig_length: None
- lsig_rate: None
  tlvs: []
  notdecoded: b''
 
@@ -71,14 +23,8 @@ Successfully read 285 packets from data/example-tptk-attack.pcapng
  subtype: 13
  type: 1
  proto: 0
- cfe: None
- FCfield: 
  ID: 0
  addr1: 02:00:00:00:01:00
- addr2: None
- addr3: None
- SC: None
- addr4: None
 
 
 ************************************* PACKET DETAIL *************************************
@@ -90,57 +36,11 @@ Successfully read 285 packets from data/example-tptk-attack.pcapng
  present: TSFT+Flags+Rate+Channel
  Ext: []
  mac_timestamp: 1507043007080048
- Flags: 
  Rate: 1.0
  ChannelFrequency: 2412
  ChannelFlags: CCK+2GHz
- dBm_AntSignal: None
- dBm_AntNoise: None
- Lock_Quality: None
- Antenna: None
- RXFlags: None
- TXFlags: None
- ChannelPlusFlags: None
- ChannelPlusFrequency: None
- ChannelPlusNumber: None
- knownMCS: None
- Ness_LSB: None
- STBC_streams: None
- FEC_type: None
- HT_format: None
- guard_interval: None
- MCS_bandwidth: None
- MCS_index: None
- A_MPDU_ref: None
- A_MPDU_flags: None
- KnownVHT: None
- PresentVHT: None
- VHT_bandwidth: None
- mcs_nss: None
- GroupID: None
- PartialAID: None
- timestamp: None
- ts_accuracy: None
- ts_unit: None
- ts_position: None
- ts_flags: None
- he_data1: None
- he_data2: None
- he_data3: None
- he_data4: None
- he_data5: None
- he_data6: None
- hemu_flags1: None
- hemu_flags2: None
  RU_channel1: []
  RU_channel2: []
- hemuou_per_user_1: None
- hemuou_per_user_2: None
- hemuou_per_user_position: None
- hemuou_per_user_known: None
- lsig_data1: None
- lsig_length: None
- lsig_rate: None
  tlvs: []
  notdecoded: b''
 
@@ -149,14 +49,11 @@ Successfully read 285 packets from data/example-tptk-attack.pcapng
  subtype: 11
  type: 0
  proto: 0
- cfe: None
- FCfield: 
  ID: 14849
  addr1: 02:00:00:00:01:00
  addr2: 02:00:00:00:00:00
  addr3: 02:00:00:00:00:00
  SC: 768
- addr4: None
 
 
 87: Layer_802.11 Authentication:
@@ -173,58 +70,10 @@ Successfully read 285 packets from data/example-tptk-attack.pcapng
  len: 14
  present: Flags+Channel
  Ext: []
- mac_timestamp: None
- Flags: 
- Rate: None
  ChannelFrequency: 2412
  ChannelFlags: 2GHz
- dBm_AntSignal: None
- dBm_AntNoise: None
- Lock_Quality: None
- Antenna: None
- RXFlags: None
- TXFlags: None
- ChannelPlusFlags: None
- ChannelPlusFrequency: None
- ChannelPlusNumber: None
- knownMCS: None
- Ness_LSB: None
- STBC_streams: None
- FEC_type: None
- HT_format: None
- guard_interval: None
- MCS_bandwidth: None
- MCS_index: None
- A_MPDU_ref: None
- A_MPDU_flags: None
- KnownVHT: None
- PresentVHT: None
- VHT_bandwidth: None
- mcs_nss: None
- GroupID: None
- PartialAID: None
- timestamp: None
- ts_accuracy: None
- ts_unit: None
- ts_position: None
- ts_flags: None
- he_data1: None
- he_data2: None
- he_data3: None
- he_data4: None
- he_data5: None
- he_data6: None
- hemu_flags1: None
- hemu_flags2: None
  RU_channel1: []
  RU_channel2: []
- hemuou_per_user_1: None
- hemuou_per_user_2: None
- hemuou_per_user_position: None
- hemuou_per_user_known: None
- lsig_data1: None
- lsig_length: None
- lsig_rate: None
  tlvs: []
  notdecoded: b''
 
@@ -233,14 +82,8 @@ Successfully read 285 packets from data/example-tptk-attack.pcapng
  subtype: 13
  type: 1
  proto: 0
- cfe: None
- FCfield: 
  ID: 0
  addr1: 02:00:00:00:00:00
- addr2: None
- addr3: None
- SC: None
- addr4: None
 
 
 ************************************* PACKET DETAIL *************************************
@@ -252,57 +95,11 @@ Successfully read 285 packets from data/example-tptk-attack.pcapng
  present: TSFT+Flags+Rate+Channel
  Ext: []
  mac_timestamp: 1507043007081039
- Flags: 
  Rate: 1.0
  ChannelFrequency: 2412
  ChannelFlags: CCK+2GHz
- dBm_AntSignal: None
- dBm_AntNoise: None
- Lock_Quality: None
- Antenna: None
- RXFlags: None
- TXFlags: None
- ChannelPlusFlags: None
- ChannelPlusFrequency: None
- ChannelPlusNumber: None
- knownMCS: None
- Ness_LSB: None
- STBC_streams: None
- FEC_type: None
- HT_format: None
- guard_interval: None
- MCS_bandwidth: None
- MCS_index: None
- A_MPDU_ref: None
- A_MPDU_flags: None
- KnownVHT: None
- PresentVHT: None
- VHT_bandwidth: None
- mcs_nss: None
- GroupID: None
- PartialAID: None
- timestamp: None
- ts_accuracy: None
- ts_unit: None
- ts_position: None
- ts_flags: None
- he_data1: None
- he_data2: None
- he_data3: None
- he_data4: None
- he_data5: None
- he_data6: None
- hemu_flags1: None
- hemu_flags2: None
  RU_channel1: []
  RU_channel2: []
- hemuou_per_user_1: None
- hemuou_per_user_2: None
- hemuou_per_user_position: None
- hemuou_per_user_known: None
- lsig_data1: None
- lsig_length: None
- lsig_rate: None
  tlvs: []
  notdecoded: b''
 
@@ -311,14 +108,11 @@ Successfully read 285 packets from data/example-tptk-attack.pcapng
  subtype: 0
  type: 0
  proto: 0
- cfe: None
- FCfield: 
  ID: 14849
  addr1: 02:00:00:00:00:00
  addr2: 02:00:00:00:01:00
  addr3: 02:00:00:00:00:00
  SC: 4256
- addr4: None
 
 
 89: Layer_802.11 Association Request:
@@ -380,58 +174,10 @@ Successfully read 285 packets from data/example-tptk-attack.pcapng
  len: 14
  present: Flags+Channel
  Ext: []
- mac_timestamp: None
- Flags: 
- Rate: None
  ChannelFrequency: 2412
  ChannelFlags: 2GHz
- dBm_AntSignal: None
- dBm_AntNoise: None
- Lock_Quality: None
- Antenna: None
- RXFlags: None
- TXFlags: None
- ChannelPlusFlags: None
- ChannelPlusFrequency: None
- ChannelPlusNumber: None
- knownMCS: None
- Ness_LSB: None
- STBC_streams: None
- FEC_type: None
- HT_format: None
- guard_interval: None
- MCS_bandwidth: None
- MCS_index: None
- A_MPDU_ref: None
- A_MPDU_flags: None
- KnownVHT: None
- PresentVHT: None
- VHT_bandwidth: None
- mcs_nss: None
- GroupID: None
- PartialAID: None
- timestamp: None
- ts_accuracy: None
- ts_unit: None
- ts_position: None
- ts_flags: None
- he_data1: None
- he_data2: None
- he_data3: None
- he_data4: None
- he_data5: None
- he_data6: None
- hemu_flags1: None
- hemu_flags2: None
  RU_channel1: []
  RU_channel2: []
- hemuou_per_user_1: None
- hemuou_per_user_2: None
- hemuou_per_user_position: None
- hemuou_per_user_known: None
- lsig_data1: None
- lsig_length: None
- lsig_rate: None
  tlvs: []
  notdecoded: b''
 
@@ -440,14 +186,8 @@ Successfully read 285 packets from data/example-tptk-attack.pcapng
  subtype: 13
  type: 1
  proto: 0
- cfe: None
- FCfield: 
  ID: 0
  addr1: 02:00:00:00:01:00
- addr2: None
- addr3: None
- SC: None
- addr4: None
 
 
 ************************************* PACKET DETAIL *************************************
@@ -459,57 +199,11 @@ Successfully read 285 packets from data/example-tptk-attack.pcapng
  present: TSFT+Flags+Rate+Channel
  Ext: []
  mac_timestamp: 1507043007081296
- Flags: 
  Rate: 1.0
  ChannelFrequency: 2412
  ChannelFlags: CCK+2GHz
- dBm_AntSignal: None
- dBm_AntNoise: None
- Lock_Quality: None
- Antenna: None
- RXFlags: None
- TXFlags: None
- ChannelPlusFlags: None
- ChannelPlusFrequency: None
- ChannelPlusNumber: None
- knownMCS: None
- Ness_LSB: None
- STBC_streams: None
- FEC_type: None
- HT_format: None
- guard_interval: None
- MCS_bandwidth: None
- MCS_index: None
- A_MPDU_ref: None
- A_MPDU_flags: None
- KnownVHT: None
- PresentVHT: None
- VHT_bandwidth: None
- mcs_nss: None
- GroupID: None
- PartialAID: None
- timestamp: None
- ts_accuracy: None
- ts_unit: None
- ts_position: None
- ts_flags: None
- he_data1: None
- he_data2: None
- he_data3: None
- he_data4: None
- he_data5: None
- he_data6: None
- hemu_flags1: None
- hemu_flags2: None
  RU_channel1: []
  RU_channel2: []
- hemuou_per_user_1: None
- hemuou_per_user_2: None
- hemuou_per_user_position: None
- hemuou_per_user_known: None
- lsig_data1: None
- lsig_length: None
- lsig_rate: None
  tlvs: []
  notdecoded: b''
 
@@ -518,14 +212,11 @@ Successfully read 285 packets from data/example-tptk-attack.pcapng
  subtype: 1
  type: 0
  proto: 0
- cfe: None
- FCfield: 
  ID: 14849
  addr1: 02:00:00:00:01:00
  addr2: 02:00:00:00:00:00
  addr3: 02:00:00:00:00:00
  SC: 784
- addr4: None
 
 
 91: Layer_802.11 Association Response:
@@ -561,58 +252,10 @@ Successfully read 285 packets from data/example-tptk-attack.pcapng
  len: 14
  present: Flags+Channel
  Ext: []
- mac_timestamp: None
- Flags: 
- Rate: None
  ChannelFrequency: 2412
  ChannelFlags: 2GHz
- dBm_AntSignal: None
- dBm_AntNoise: None
- Lock_Quality: None
- Antenna: None
- RXFlags: None
- TXFlags: None
- ChannelPlusFlags: None
- ChannelPlusFrequency: None
- ChannelPlusNumber: None
- knownMCS: None
- Ness_LSB: None
- STBC_streams: None
- FEC_type: None
- HT_format: None
- guard_interval: None
- MCS_bandwidth: None
- MCS_index: None
- A_MPDU_ref: None
- A_MPDU_flags: None
- KnownVHT: None
- PresentVHT: None
- VHT_bandwidth: None
- mcs_nss: None
- GroupID: None
- PartialAID: None
- timestamp: None
- ts_accuracy: None
- ts_unit: None
- ts_position: None
- ts_flags: None
- he_data1: None
- he_data2: None
- he_data3: None
- he_data4: None
- he_data5: None
- he_data6: None
- hemu_flags1: None
- hemu_flags2: None
  RU_channel1: []
  RU_channel2: []
- hemuou_per_user_1: None
- hemuou_per_user_2: None
- hemuou_per_user_position: None
- hemuou_per_user_known: None
- lsig_data1: None
- lsig_length: None
- lsig_rate: None
  tlvs: []
  notdecoded: b''
 
@@ -621,14 +264,8 @@ Successfully read 285 packets from data/example-tptk-attack.pcapng
  subtype: 13
  type: 1
  proto: 0
- cfe: None
- FCfield: 
  ID: 0
  addr1: 02:00:00:00:00:00
- addr2: None
- addr3: None
- SC: None
- addr4: None
 
 
 ************************************* PACKET DETAIL *************************************
@@ -640,57 +277,11 @@ Successfully read 285 packets from data/example-tptk-attack.pcapng
  present: TSFT+Flags+Rate+Channel
  Ext: []
  mac_timestamp: 1507043007085053
- Flags: 
  Rate: 1.0
  ChannelFrequency: 2412
  ChannelFlags: CCK+2GHz
- dBm_AntSignal: None
- dBm_AntNoise: None
- Lock_Quality: None
- Antenna: None
- RXFlags: None
- TXFlags: None
- ChannelPlusFlags: None
- ChannelPlusFrequency: None
- ChannelPlusNumber: None
- knownMCS: None
- Ness_LSB: None
- STBC_streams: None
- FEC_type: None
- HT_format: None
- guard_interval: None
- MCS_bandwidth: None
- MCS_index: None
- A_MPDU_ref: None
- A_MPDU_flags: None
- KnownVHT: None
- PresentVHT: None
- VHT_bandwidth: None
- mcs_nss: None
- GroupID: None
- PartialAID: None
- timestamp: None
- ts_accuracy: None
- ts_unit: None
- ts_position: None
- ts_flags: None
- he_data1: None
- he_data2: None
- he_data3: None
- he_data4: None
- he_data5: None
- he_data6: None
- hemu_flags1: None
- hemu_flags2: None
  RU_channel1: []
  RU_channel2: []
- hemuou_per_user_1: None
- hemuou_per_user_2: None
- hemuou_per_user_position: None
- hemuou_per_user_known: None
- lsig_data1: None
- lsig_length: None
- lsig_rate: None
  tlvs: []
  notdecoded: b''
 
@@ -699,14 +290,12 @@ Successfully read 285 packets from data/example-tptk-attack.pcapng
  subtype: 8
  type: 2
  proto: 0
- cfe: None
  FCfield: from-DS
  ID: 14849
  addr1: 02:00:00:00:01:00
  addr2: 02:00:00:00:00:00
  addr3: 02:00:00:00:00:00
  SC: 0
- addr4: None
 
 
 93: Layer_802.11 QoS:
@@ -747,58 +336,10 @@ Successfully read 285 packets from data/example-tptk-attack.pcapng
  len: 14
  present: Flags+Channel
  Ext: []
- mac_timestamp: None
- Flags: 
- Rate: None
  ChannelFrequency: 2412
  ChannelFlags: 2GHz
- dBm_AntSignal: None
- dBm_AntNoise: None
- Lock_Quality: None
- Antenna: None
- RXFlags: None
- TXFlags: None
- ChannelPlusFlags: None
- ChannelPlusFrequency: None
- ChannelPlusNumber: None
- knownMCS: None
- Ness_LSB: None
- STBC_streams: None
- FEC_type: None
- HT_format: None
- guard_interval: None
- MCS_bandwidth: None
- MCS_index: None
- A_MPDU_ref: None
- A_MPDU_flags: None
- KnownVHT: None
- PresentVHT: None
- VHT_bandwidth: None
- mcs_nss: None
- GroupID: None
- PartialAID: None
- timestamp: None
- ts_accuracy: None
- ts_unit: None
- ts_position: None
- ts_flags: None
- he_data1: None
- he_data2: None
- he_data3: None
- he_data4: None
- he_data5: None
- he_data6: None
- hemu_flags1: None
- hemu_flags2: None
  RU_channel1: []
  RU_channel2: []
- hemuou_per_user_1: None
- hemuou_per_user_2: None
- hemuou_per_user_position: None
- hemuou_per_user_known: None
- lsig_data1: None
- lsig_length: None
- lsig_rate: None
  tlvs: []
  notdecoded: b''
 
@@ -807,14 +348,8 @@ Successfully read 285 packets from data/example-tptk-attack.pcapng
  subtype: 13
  type: 1
  proto: 0
- cfe: None
- FCfield: 
  ID: 0
  addr1: 02:00:00:00:00:00
- addr2: None
- addr3: None
- SC: None
- addr4: None
 
 
 ************************************* PACKET DETAIL *************************************
@@ -826,57 +361,11 @@ Successfully read 285 packets from data/example-tptk-attack.pcapng
  present: TSFT+Flags+Rate+Channel
  Ext: []
  mac_timestamp: 1507043007085885
- Flags: 
  Rate: 1.0
  ChannelFrequency: 2412
  ChannelFlags: CCK+2GHz
- dBm_AntSignal: None
- dBm_AntNoise: None
- Lock_Quality: None
- Antenna: None
- RXFlags: None
- TXFlags: None
- ChannelPlusFlags: None
- ChannelPlusFrequency: None
- ChannelPlusNumber: None
- knownMCS: None
- Ness_LSB: None
- STBC_streams: None
- FEC_type: None
- HT_format: None
- guard_interval: None
- MCS_bandwidth: None
- MCS_index: None
- A_MPDU_ref: None
- A_MPDU_flags: None
- KnownVHT: None
- PresentVHT: None
- VHT_bandwidth: None
- mcs_nss: None
- GroupID: None
- PartialAID: None
- timestamp: None
- ts_accuracy: None
- ts_unit: None
- ts_position: None
- ts_flags: None
- he_data1: None
- he_data2: None
- he_data3: None
- he_data4: None
- he_data5: None
- he_data6: None
- hemu_flags1: None
- hemu_flags2: None
  RU_channel1: []
  RU_channel2: []
- hemuou_per_user_1: None
- hemuou_per_user_2: None
- hemuou_per_user_position: None
- hemuou_per_user_known: None
- lsig_data1: None
- lsig_length: None
- lsig_rate: None
  tlvs: []
  notdecoded: b''
 
@@ -885,14 +374,12 @@ Successfully read 285 packets from data/example-tptk-attack.pcapng
  subtype: 8
  type: 2
  proto: 0
- cfe: None
  FCfield: to-DS
  ID: 14849
  addr1: 02:00:00:00:00:00
  addr2: 02:00:00:00:01:00
  addr3: 02:00:00:00:00:00
  SC: 0
- addr4: None
 
 
 95: Layer_802.11 QoS:
@@ -933,58 +420,10 @@ Successfully read 285 packets from data/example-tptk-attack.pcapng
  len: 14
  present: Flags+Channel
  Ext: []
- mac_timestamp: None
- Flags: 
- Rate: None
  ChannelFrequency: 2412
  ChannelFlags: 2GHz
- dBm_AntSignal: None
- dBm_AntNoise: None
- Lock_Quality: None
- Antenna: None
- RXFlags: None
- TXFlags: None
- ChannelPlusFlags: None
- ChannelPlusFrequency: None
- ChannelPlusNumber: None
- knownMCS: None
- Ness_LSB: None
- STBC_streams: None
- FEC_type: None
- HT_format: None
- guard_interval: None
- MCS_bandwidth: None
- MCS_index: None
- A_MPDU_ref: None
- A_MPDU_flags: None
- KnownVHT: None
- PresentVHT: None
- VHT_bandwidth: None
- mcs_nss: None
- GroupID: None
- PartialAID: None
- timestamp: None
- ts_accuracy: None
- ts_unit: None
- ts_position: None
- ts_flags: None
- he_data1: None
- he_data2: None
- he_data3: None
- he_data4: None
- he_data5: None
- he_data6: None
- hemu_flags1: None
- hemu_flags2: None
  RU_channel1: []
  RU_channel2: []
- hemuou_per_user_1: None
- hemuou_per_user_2: None
- hemuou_per_user_position: None
- hemuou_per_user_known: None
- lsig_data1: None
- lsig_length: None
- lsig_rate: None
  tlvs: []
  notdecoded: b''
 
@@ -993,14 +432,8 @@ Successfully read 285 packets from data/example-tptk-attack.pcapng
  subtype: 13
  type: 1
  proto: 0
- cfe: None
- FCfield: 
  ID: 0
  addr1: 02:00:00:00:01:00
- addr2: None
- addr3: None
- SC: None
- addr4: None
 
 
 ************************************* PACKET DETAIL *************************************
@@ -1012,57 +445,11 @@ Successfully read 285 packets from data/example-tptk-attack.pcapng
  present: TSFT+Flags+Rate+Channel
  Ext: []
  mac_timestamp: 1507043007086081
- Flags: 
  Rate: 1.0
  ChannelFrequency: 2412
  ChannelFlags: CCK+2GHz
- dBm_AntSignal: None
- dBm_AntNoise: None
- Lock_Quality: None
- Antenna: None
- RXFlags: None
- TXFlags: None
- ChannelPlusFlags: None
- ChannelPlusFrequency: None
- ChannelPlusNumber: None
- knownMCS: None
- Ness_LSB: None
- STBC_streams: None
- FEC_type: None
- HT_format: None
- guard_interval: None
- MCS_bandwidth: None
- MCS_index: None
- A_MPDU_ref: None
- A_MPDU_flags: None
- KnownVHT: None
- PresentVHT: None
- VHT_bandwidth: None
- mcs_nss: None
- GroupID: None
- PartialAID: None
- timestamp: None
- ts_accuracy: None
- ts_unit: None
- ts_position: None
- ts_flags: None
- he_data1: None
- he_data2: None
- he_data3: None
- he_data4: None
- he_data5: None
- he_data6: None
- hemu_flags1: None
- hemu_flags2: None
  RU_channel1: []
  RU_channel2: []
- hemuou_per_user_1: None
- hemuou_per_user_2: None
- hemuou_per_user_position: None
- hemuou_per_user_known: None
- lsig_data1: None
- lsig_length: None
- lsig_rate: None
  tlvs: []
  notdecoded: b''
 
@@ -1071,14 +458,12 @@ Successfully read 285 packets from data/example-tptk-attack.pcapng
  subtype: 8
  type: 2
  proto: 0
- cfe: None
  FCfield: from-DS
  ID: 14849
  addr1: 02:00:00:00:01:00
  addr2: 02:00:00:00:00:00
  addr3: 02:00:00:00:00:00
  SC: 16
- addr4: None
 
 
 97: Layer_802.11 QoS:
@@ -1119,58 +504,10 @@ Successfully read 285 packets from data/example-tptk-attack.pcapng
  len: 14
  present: Flags+Channel
  Ext: []
- mac_timestamp: None
- Flags: 
- Rate: None
  ChannelFrequency: 2412
  ChannelFlags: 2GHz
- dBm_AntSignal: None
- dBm_AntNoise: None
- Lock_Quality: None
- Antenna: None
- RXFlags: None
- TXFlags: None
- ChannelPlusFlags: None
- ChannelPlusFrequency: None
- ChannelPlusNumber: None
- knownMCS: None
- Ness_LSB: None
- STBC_streams: None
- FEC_type: None
- HT_format: None
- guard_interval: None
- MCS_bandwidth: None
- MCS_index: None
- A_MPDU_ref: None
- A_MPDU_flags: None
- KnownVHT: None
- PresentVHT: None
- VHT_bandwidth: None
- mcs_nss: None
- GroupID: None
- PartialAID: None
- timestamp: None
- ts_accuracy: None
- ts_unit: None
- ts_position: None
- ts_flags: None
- he_data1: None
- he_data2: None
- he_data3: None
- he_data4: None
- he_data5: None
- he_data6: None
- hemu_flags1: None
- hemu_flags2: None
  RU_channel1: []
  RU_channel2: []
- hemuou_per_user_1: None
- hemuou_per_user_2: None
- hemuou_per_user_position: None
- hemuou_per_user_known: None
- lsig_data1: None
- lsig_length: None
- lsig_rate: None
  tlvs: []
  notdecoded: b''
 
@@ -1179,14 +516,8 @@ Successfully read 285 packets from data/example-tptk-attack.pcapng
  subtype: 13
  type: 1
  proto: 0
- cfe: None
- FCfield: 
  ID: 0
  addr1: 02:00:00:00:00:00
- addr2: None
- addr3: None
- SC: None
- addr4: None
 
 
 ************************************* PACKET DETAIL *************************************
@@ -1198,57 +529,11 @@ Successfully read 285 packets from data/example-tptk-attack.pcapng
  present: TSFT+Flags+Rate+Channel
  Ext: []
  mac_timestamp: 1507043007086142
- Flags: 
  Rate: 1.0
  ChannelFrequency: 2412
  ChannelFlags: CCK+2GHz
- dBm_AntSignal: None
- dBm_AntNoise: None
- Lock_Quality: None
- Antenna: None
- RXFlags: None
- TXFlags: None
- ChannelPlusFlags: None
- ChannelPlusFrequency: None
- ChannelPlusNumber: None
- knownMCS: None
- Ness_LSB: None
- STBC_streams: None
- FEC_type: None
- HT_format: None
- guard_interval: None
- MCS_bandwidth: None
- MCS_index: None
- A_MPDU_ref: None
- A_MPDU_flags: None
- KnownVHT: None
- PresentVHT: None
- VHT_bandwidth: None
- mcs_nss: None
- GroupID: None
- PartialAID: None
- timestamp: None
- ts_accuracy: None
- ts_unit: None
- ts_position: None
- ts_flags: None
- he_data1: None
- he_data2: None
- he_data3: None
- he_data4: None
- he_data5: None
- he_data6: None
- hemu_flags1: None
- hemu_flags2: None
  RU_channel1: []
  RU_channel2: []
- hemuou_per_user_1: None
- hemuou_per_user_2: None
- hemuou_per_user_position: None
- hemuou_per_user_known: None
- lsig_data1: None
- lsig_length: None
- lsig_rate: None
  tlvs: []
  notdecoded: b''
 
@@ -1257,14 +542,12 @@ Successfully read 285 packets from data/example-tptk-attack.pcapng
  subtype: 8
  type: 2
  proto: 0
- cfe: None
  FCfield: from-DS
  ID: 14849
  addr1: 02:00:00:00:01:00
  addr2: 02:00:00:00:00:00
  addr3: 02:00:00:00:00:00
  SC: 32
- addr4: None
 
 
 99: Layer_802.11 QoS:
@@ -1305,58 +588,10 @@ Successfully read 285 packets from data/example-tptk-attack.pcapng
  len: 14
  present: Flags+Channel
  Ext: []
- mac_timestamp: None
- Flags: 
- Rate: None
  ChannelFrequency: 2412
  ChannelFlags: 2GHz
- dBm_AntSignal: None
- dBm_AntNoise: None
- Lock_Quality: None
- Antenna: None
- RXFlags: None
- TXFlags: None
- ChannelPlusFlags: None
- ChannelPlusFrequency: None
- ChannelPlusNumber: None
- knownMCS: None
- Ness_LSB: None
- STBC_streams: None
- FEC_type: None
- HT_format: None
- guard_interval: None
- MCS_bandwidth: None
- MCS_index: None
- A_MPDU_ref: None
- A_MPDU_flags: None
- KnownVHT: None
- PresentVHT: None
- VHT_bandwidth: None
- mcs_nss: None
- GroupID: None
- PartialAID: None
- timestamp: None
- ts_accuracy: None
- ts_unit: None
- ts_position: None
- ts_flags: None
- he_data1: None
- he_data2: None
- he_data3: None
- he_data4: None
- he_data5: None
- he_data6: None
- hemu_flags1: None
- hemu_flags2: None
  RU_channel1: []
  RU_channel2: []
- hemuou_per_user_1: None
- hemuou_per_user_2: None
- hemuou_per_user_position: None
- hemuou_per_user_known: None
- lsig_data1: None
- lsig_length: None
- lsig_rate: None
  tlvs: []
  notdecoded: b''
 
@@ -1365,14 +600,8 @@ Successfully read 285 packets from data/example-tptk-attack.pcapng
  subtype: 13
  type: 1
  proto: 0
- cfe: None
- FCfield: 
  ID: 0
  addr1: 02:00:00:00:00:00
- addr2: None
- addr3: None
- SC: None
- addr4: None
 
 
 ************************************* PACKET DETAIL *************************************
@@ -1384,57 +613,11 @@ Successfully read 285 packets from data/example-tptk-attack.pcapng
  present: TSFT+Flags+Rate+Channel
  Ext: []
  mac_timestamp: 1507043007086182
- Flags: 
  Rate: 1.0
  ChannelFrequency: 2412
  ChannelFlags: CCK+2GHz
- dBm_AntSignal: None
- dBm_AntNoise: None
- Lock_Quality: None
- Antenna: None
- RXFlags: None
- TXFlags: None
- ChannelPlusFlags: None
- ChannelPlusFrequency: None
- ChannelPlusNumber: None
- knownMCS: None
- Ness_LSB: None
- STBC_streams: None
- FEC_type: None
- HT_format: None
- guard_interval: None
- MCS_bandwidth: None
- MCS_index: None
- A_MPDU_ref: None
- A_MPDU_flags: None
- KnownVHT: None
- PresentVHT: None
- VHT_bandwidth: None
- mcs_nss: None
- GroupID: None
- PartialAID: None
- timestamp: None
- ts_accuracy: None
- ts_unit: None
- ts_position: None
- ts_flags: None
- he_data1: None
- he_data2: None
- he_data3: None
- he_data4: None
- he_data5: None
- he_data6: None
- hemu_flags1: None
- hemu_flags2: None
  RU_channel1: []
  RU_channel2: []
- hemuou_per_user_1: None
- hemuou_per_user_2: None
- hemuou_per_user_position: None
- hemuou_per_user_known: None
- lsig_data1: None
- lsig_length: None
- lsig_rate: None
  tlvs: []
  notdecoded: b''
 
@@ -1443,14 +626,12 @@ Successfully read 285 packets from data/example-tptk-attack.pcapng
  subtype: 8
  type: 2
  proto: 0
- cfe: None
  FCfield: from-DS
  ID: 14849
  addr1: 02:00:00:00:01:00
  addr2: 02:00:00:00:00:00
  addr3: 02:00:00:00:00:00
  SC: 48
- addr4: None
 
 
 101: Layer_802.11 QoS:
