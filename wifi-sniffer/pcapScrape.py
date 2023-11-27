@@ -2,15 +2,14 @@
 
 # formatting/debugging
 import logging
-import traceback
 from datetime import datetime
 # pcap library
 from scapy.all import *
 
 # header vars
-FILES = ['example-ft.pcapng', 'example-tptk-attack.pcapng', 'ipv4frags.pcap', 'nf9-juniper-vmx.pcapng.cap', 'smtp.pcap', 'teardrop.cap']
+FILES = ['example-ft.pcapng', 'example-tptk-attack.pcapng', 'ipv4frags.pcap', 'nf9-juniper-vmx.pcapng.cap', 'smtp.pcap', 'teardrop.cap', 'nf9-error.pcapng.cap']
 
-""" ********************************************** LOGGING FUNCTIONS ********************************************** """
+""" ********************************************** INITIATE LOGGING ********************************************** """
 # initiate error logger
 error_logger = logging.getLogger('error_logger')
 error_logger.setLevel(logging.ERROR)
@@ -22,7 +21,7 @@ file_handler.setFormatter(log_formatter) # configure file_handler
 error_logger.addHandler(file_handler)
 
 # initiate info logger
-logging.basicConfig(filename='error.log', level=logging.ERROR, format='%(asctime)s %(levelname)s:%(message)s') # errors
+
 # print statements
 info_logger = logging.getLogger('info_logger')
 info_logger.setLevel(logging.INFO)
@@ -36,6 +35,44 @@ info_logger.addHandler(file_handler)
 info_logger.info("************************************* PCAP FILE ANALYSIS *************************************\n")
 
 """ ********************************************** PCAP FUNCTIONS ********************************************** """
+# def extract_packet_details(packet):
+#     if packet.haslayer(Dot11):
+#         attributes = {}
+#         for field in packet[Dot11].fields_desc:
+#             field_name = field.name
+#             field_value = packet[Dot11].fields.get(field_name, None)
+#             attributes[field_name] = field_value 
+    
+#     info_logger.info('************************************* PACKET DETAIL *************************************\n')
+#     for att, value in attributes.items():
+#         info_logger.info(f'{att}: {value}')
+
+def extract_packet_details(packet):
+    layer_details = {}
+    cur_layer = packet
+    layer_count = 0 
+
+    while cur_layer:
+        layer_name = cur_layer.name
+        layer_fields = {}
+
+        if hasattr(cur_layer, 'fields_desc'):
+            for field in cur_layer.fields_desc:
+                field_name = field.name
+                field_value = cur_layer.fields.get(field_name, None)
+                layer_fields[field_name] = field_value
+        layer_details[f'Layer_{layer_count}_{layer_name}'] = layer_fields
+        cur_layer = cur_layer.payload
+        layer_count += 1 
+
+    info_logger.info('************************************* PACKET DETAIL *************************************\n')
+    for layer, fields in layer_details.items():
+        info_logger.info(f'{layer}:')
+        for field_name, field_value in fields.items():
+            info_logger.info(f' {field_name}: {field_value}')
+        info_logger.info('\n')
+
+
 
 # report_pcap
 # threshold: modifier to adjust level of scrutiny (automatically set to 1)
@@ -49,14 +86,16 @@ def report_pcap(attackers, pcap_file, threshold=1):
 
 
 # process_pcap
+# takes file path and a flag
 def process_pcap(pcap_file, block_traffic=False):
+    packets = [] # declare empty list to stop error @ 111
     try:
         packets = rdpcap(pcap_file)
         info_logger.info(f'============================== {pcap_file.upper()} ==============================\n')
         info_logger.info(f"Successfully read {len(packets)} packets from {pcap_file}")
     except Exception as e:
         error_logger.error(f"Error reading {pcap_file}: {e}")
-        return None
+         
 
     attackers = {}
 
@@ -66,15 +105,18 @@ def process_pcap(pcap_file, block_traffic=False):
         timestamp = float(packet.time)
         formatted_time = datetime.utcfromtimestamp(timestamp).strftime('%Y-%m-%d %H:%M:%S.%f')[:-3]
 
-        if Dot11 in packet:
-            src_mac = packet[Dot11].addr2
+        # packet extraction
+        if Dot11 in packet: 
+            extract_packet_details(packet)
+            # get mac addresses
+            src_mac = packet[Dot11].addr2 
             dst_mac = packet[Dot11].addr1
 
-            if src_mac not in attackers:
+            if src_mac not in attackers: # unique mac not in attackers
                 attackers[src_mac] = {"count": 1, "details": [(dst_mac)]}
-            else:
+            else: # else increment the # of times src_mac is seen
                 attackers[src_mac]["count"] += 1
-                attackers[src_mac]["details"].append(dst_mac)
+                attackers[src_mac]["details"].append(dst_mac) # append details
 
             if Dot11WEP in packet and packet[Dot11WEP].key_info & 64:
                 reason = "Potential KRACK attack"
