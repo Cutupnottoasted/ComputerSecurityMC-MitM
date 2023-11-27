@@ -1,16 +1,15 @@
 # imports
-
 # formatting/debugging
 import logging
-import traceback
 from datetime import datetime
 # pcap library
 from scapy.all import *
+from scapy.layers.dot11 import Dot11
 
-# header vars
-FILES = ['example-ft.pcapng', 'example-tptk-attack.pcapng', 'ipv4frags.pcap', 'nf9-juniper-vmx.pcapng.cap', 'smtp.pcap', 'teardrop.cap']
+# 'example-ft.pcapng', 'ipv4frags.pcap', 'nf9-juniper-vmx.pcapng.cap', 'smtp.pcap', 'teardrop.cap', 'nf9-error.pcapng.cap', 'example-tptk-success.pcap'
+FILES = ['example-tptk-attack.pcapng']
 
-""" ********************************************** LOGGING FUNCTIONS ********************************************** """
+""" ********************************************** INITIATE LOGGING ********************************************** """
 # initiate error logger
 error_logger = logging.getLogger('error_logger')
 error_logger.setLevel(logging.ERROR)
@@ -22,7 +21,7 @@ file_handler.setFormatter(log_formatter) # configure file_handler
 error_logger.addHandler(file_handler)
 
 # initiate info logger
-logging.basicConfig(filename='error.log', level=logging.ERROR, format='%(asctime)s %(levelname)s:%(message)s') # errors
+
 # print statements
 info_logger = logging.getLogger('info_logger')
 info_logger.setLevel(logging.INFO)
@@ -33,100 +32,97 @@ file_handler.setLevel(logging.INFO)
 
 info_logger.addHandler(file_handler)
 
-info_logger.info("************************************* PCAP FILE ANALYSIS *************************************\n")
+# info_logger.info("************************************* PCAP FILE ANALYSIS *************************************\n")
+# formatted_time = datetime.utcfromtimestamp(timestamp).strftime('%Y-%m-%d %H:%M:%S.%f')[:-3]
 
-""" ********************************************** PCAP FUNCTIONS ********************************************** """
+def extract_nonce(raw_payload):
+    start_offset = 13
+    length = 32
+    nonce = raw_payload[start_offset:start_offset + length]
+    return nonce.hex()
 
-# report_pcap
-# threshold: modifier to adjust level of scrutiny (automatically set to 1)
-def report_pcap(attackers, pcap_file, threshold=1):
-    if any(data['count'] > threshold for data in attackers.values()):
-        info_logger.info(f"\nPotential Attackers detected in {pcap_file}")
-        for mac, data in attackers.items():
-            if data["count"] > threshold:
-                info_logger.info(f"  Source MAC: {mac} (Packets: {data['count']})")
-                info_logger.info(f"  Blocked: {mac}\n")
+def identify_subtype(n):
+    if n == 0:
+        return 'Association Request'
+    if n == 1:
+        return 'Association Response'
+    if n == 4:
+        return 'Probe Request'
+    if n == 5:
+        return 'Probe Response'
+    if n == 8: # Handshake/broadcast
+        return 'Beacon'
+    if n == 11:
+        return 'Authentication'
+    if n == 12:
+        return 'Deauthentication'
+    if n == 13: # receipt acknowledgement
+        return 'Action'
 
-
-# process_pcap
-def process_pcap(pcap_file, block_traffic=False):
+def process_pcap(pcap_file):
+    packets = []
     try:
         packets = rdpcap(pcap_file)
-        info_logger.info(f'============================== {pcap_file.upper()} ==============================\n')
+        info_logger.info(f'============================== {pcap_file.upper()} ==============================')
         info_logger.info(f"Successfully read {len(packets)} packets from {pcap_file}")
     except Exception as e:
         error_logger.error(f"Error reading {pcap_file}: {e}")
-        return None
 
-    attackers = {}
+    pcap_info = []
 
+    # create dictionary of frame info
     def process_packet(packet, packet_number):
-        nonlocal block_traffic  # Use the block_traffic flag from the outer function
+        packet_info = {
+            'No.': packet_number,
+            'Time': packet.time,
+            'Protocol': None,
+            'Subtype': None,
+            'Seq. No.': None,
+            'Nonce': None
+        }
 
-        timestamp = float(packet.time)
-        formatted_time = datetime.utcfromtimestamp(timestamp).strftime('%Y-%m-%d %H:%M:%S.%f')[:-3]
+        if packet.haslayer(Dot11):
+            packet_info['Src'] = packet[Dot11].addr2
+            packet_info['Dst'] = packet[Dot11].addr1
+            packet_info['Protocol'] = '802.11'
 
-        if Dot11 in packet:
-            src_mac = packet[Dot11].addr2
-            dst_mac = packet[Dot11].addr1
+            if hasattr(packet[Dot11], 'SC'):
+                if packet[Dot11].SC:
+                    packet_info['Seq. No.'] = packet[Dot11].SC >> 4
 
-            if src_mac not in attackers:
-                attackers[src_mac] = {"count": 1, "details": [(dst_mac)]}
-            else:
-                attackers[src_mac]["count"] += 1
-                attackers[src_mac]["details"].append(dst_mac)
+            if hasattr(packet[Dot11], 'subtype'):
+                packet_info['Subtype'] = identify_subtype(packet[Dot11].subtype)
 
-            if Dot11WEP in packet and packet[Dot11WEP].key_info & 64:
-                reason = "Potential KRACK attack"
-                info_logger.info(f"\nPacket {packet_number} flagged as potential attacker - Reason: {reason}")
-                if block_traffic:
-                    info_logger.info(f"Blocking traffic for this packet.")
-                    info_logger.info(f"User dropped: {src_mac}")
-                    return  # Exit the function, simulating blocking traffic
-        else:
-            src_ip = packet[IP].src if IP in packet else "N/A"
-            dst_ip = packet[IP].dst if IP in packet else "N/A"
-            src_port = packet.sport if packet.haslayer(IP) and packet.haslayer(TCP) else "N/A"
-            dst_port = packet.dport if packet.haslayer(IP) and packet.haslayer(TCP) else "N/A"
-            protocol = packet[IP].proto if IP in packet else "N/A"
-
-            if not any(data["count"] > 0 for data in attackers.values()):
-                # Print the entire packet details for non-Dot11 packets
-                info_logger.info(f"\nPacket {packet_number} - Timestamp: {formatted_time} - Length: {len(packet)} bytes")
-                info_logger.info(f"Source IP: {src_ip}, Destination IP: {dst_ip}")
-                info_logger.info(f"Source Port: {src_port}, Destination Port: {dst_port}, Protocol: {protocol}\n")
-            elif block_traffic:
-                reason = "Handshake failed"  # Simulated reason for blocking
-                info_logger.info(f"\nPacket {packet_number} flagged as potential attacker - Reason: {reason}")
-                info_logger.info(f"Blocking {src_ip}:{src_port} - Reason: {reason}")
-                info_logger.info(f"User dropped: {src_ip}")
-            else:
-                # Print details of potential attacker packets
-                if any(data["count"] > 0 for data in attackers.values()):
-                    info_logger.info(f"\nPacket {packet_number} - Potential Attacker Details:")
-                    info_logger.info(f"Source IP: {src_ip}, Destination IP: {dst_ip}")
-                    info_logger.info(f"Source Port: {src_port}, Destination Port: {dst_port}, Protocol: {protocol}")
+        if packet.haslayer('EAPOL'):
+            packet_info['Protocol'] = 'EAPOL'
+            packet_info['Nonce'] = extract_nonce(packet.load)
+        
+        pcap_info.append(packet_info)
     
     for packet_number, packet in enumerate(packets, 1):
         process_packet(packet, packet_number)
+    
+    return pcap_info
 
-    # Print blocking simulation if there are potential attackers and block_traffic is enabled
-    if block_traffic and any(data["count"] > 0 for data in attackers.values()):
-        info_logger.info(f"Blocking traffic for potential attackers.")
-        return attackers
+def audit_probe_requests(pcap_info):
+    count = 0
+    last_seq_no = None
+    
 
-    return attackers
+def analyze_packets(pcap_info):
+    for packet in pcap_info:
+        for key, value in packet.items():
+            if value:
+                info_logger.info(f'{key}: {value}')
+        info_logger.info('\n')
 
 
-""" ********************************************** MAIN ********************************************** """
 def main():
     for path in FILES:
         path = f'data/{path}'
-        attackers = process_pcap(path, block_traffic=True)
-        report_pcap(attackers, path)
-
-
-
+        pcap_info = process_pcap(path)
+        analyze_packets(pcap_info)
+        
 
 if __name__ == '__main__':
     main()
