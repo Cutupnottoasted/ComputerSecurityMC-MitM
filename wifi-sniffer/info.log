@@ -1,713 +1,2330 @@
-************************************* PCAP FILE ANALYSIS *************************************
-
 ============================== DATA/EXAMPLE-TPTK-ATTACK.PCAPNG ==============================
-
 Successfully read 285 packets from data/example-tptk-attack.pcapng
-************************************* PACKET DETAIL *************************************
-
-85: Layer_RadioTap:
- version: 0
- pad: 0
- len: 22
- present: TSFT+Flags+Rate+Channel
- Ext: []
- mac_timestamp: 1507043007078803
- Rate: 1.0
- ChannelFrequency: 2412
- ChannelFlags: CCK+2GHz
- RU_channel1: []
- RU_channel2: []
- tlvs: []
- notdecoded: b''
-
-
-85: Layer_802.11:
- subtype: 11
- type: 0
- proto: 0
- ID: 14849
- addr1: 02:00:00:00:00:00
- addr2: 02:00:00:00:01:00
- addr3: 02:00:00:00:00:00
- SC: 4240
-
-
-85: Layer_802.11 Authentication:
- algo: 0
- seqnum: 1
- status: 0
-
-
-************************************* PACKET DETAIL *************************************
-
-86: Layer_RadioTap:
- version: 0
- pad: 0
- len: 14
- present: Flags+Channel
- Ext: []
- ChannelFrequency: 2412
- ChannelFlags: 2GHz
- RU_channel1: []
- RU_channel2: []
- tlvs: []
- notdecoded: b''
-
-
-86: Layer_802.11:
- subtype: 13
- type: 1
- proto: 0
- ID: 0
- addr1: 02:00:00:00:01:00
-
-
-************************************* PACKET DETAIL *************************************
-
-87: Layer_RadioTap:
- version: 0
- pad: 0
- len: 22
- present: TSFT+Flags+Rate+Channel
- Ext: []
- mac_timestamp: 1507043007080048
- Rate: 1.0
- ChannelFrequency: 2412
- ChannelFlags: CCK+2GHz
- RU_channel1: []
- RU_channel2: []
- tlvs: []
- notdecoded: b''
-
-
-87: Layer_802.11:
- subtype: 11
- type: 0
- proto: 0
- ID: 14849
- addr1: 02:00:00:00:01:00
- addr2: 02:00:00:00:00:00
- addr3: 02:00:00:00:00:00
- SC: 768
-
-
-87: Layer_802.11 Authentication:
- algo: 0
- seqnum: 2
- status: 0
-
-
-************************************* PACKET DETAIL *************************************
-
-88: Layer_RadioTap:
- version: 0
- pad: 0
- len: 14
- present: Flags+Channel
- Ext: []
- ChannelFrequency: 2412
- ChannelFlags: 2GHz
- RU_channel1: []
- RU_channel2: []
- tlvs: []
- notdecoded: b''
-
-
-88: Layer_802.11:
- subtype: 13
- type: 1
- proto: 0
- ID: 0
- addr1: 02:00:00:00:00:00
-
-
-************************************* PACKET DETAIL *************************************
-
-89: Layer_RadioTap:
- version: 0
- pad: 0
- len: 22
- present: TSFT+Flags+Rate+Channel
- Ext: []
- mac_timestamp: 1507043007081039
- Rate: 1.0
- ChannelFrequency: 2412
- ChannelFlags: CCK+2GHz
- RU_channel1: []
- RU_channel2: []
- tlvs: []
- notdecoded: b''
-
-
-89: Layer_802.11:
- subtype: 0
- type: 0
- proto: 0
- ID: 14849
- addr1: 02:00:00:00:00:00
- addr2: 02:00:00:00:01:00
- addr3: 02:00:00:00:00:00
- SC: 4256
-
-
-89: Layer_802.11 Association Request:
- cap: short-slot+ESS+privacy+short-preamble
- listen_interval: 5
-
-
-89: Layer_802.11 Information Element:
- ID: 127
- len: 8
- info: b'\x04\x00\x00\x00\x00\x00\x00@'
-
-
-89: Layer_802.11 Rates:
- ID: 50
- len: 4
- rates: [48, 72, 96, 108]
-
-
-89: Layer_802.11 RSN information:
- ID: 48
- len: 20
- version: 1
- group_cipher_suite: RSNCipherSuite
- nb_pairwise_cipher_suites: 1
- pairwise_cipher_suites: [<RSNCipherSuite  oui=00:0f:ac cipher=CCMP-128 |>]
- nb_akm_suites: 1
- akm_suites: [<AKMSuite  oui=00:0f:ac suite=PSK |>]
- mfp_capable: 0
- mfp_required: 0
- gtksa_replay_counter: 0
- ptksa_replay_counter: 0
- no_pairwise: 0
- pre_auth: 0
- reserved: 0
- ocvc: 0
- extended_key_id: 0
- pbac: 0
- spp_a_msdu_required: 0
- spp_a_msdu_capable: 0
- peer_key_enabled: 0
- joint_multiband_rsna: 0
- pmkids: PMKIDListPacket
- group_management_cipher_suite: RSNCipherSuite
-
-
-89: Layer_802.11 Vendor Specific:
- ID: 221
- len: 7
- oui: 20722
- info: b'\x02\x00\x01\x00'
-
-
-************************************* PACKET DETAIL *************************************
-
-90: Layer_RadioTap:
- version: 0
- pad: 0
- len: 14
- present: Flags+Channel
- Ext: []
- ChannelFrequency: 2412
- ChannelFlags: 2GHz
- RU_channel1: []
- RU_channel2: []
- tlvs: []
- notdecoded: b''
-
-
-90: Layer_802.11:
- subtype: 13
- type: 1
- proto: 0
- ID: 0
- addr1: 02:00:00:00:01:00
-
-
-************************************* PACKET DETAIL *************************************
-
-91: Layer_RadioTap:
- version: 0
- pad: 0
- len: 22
- present: TSFT+Flags+Rate+Channel
- Ext: []
- mac_timestamp: 1507043007081296
- Rate: 1.0
- ChannelFrequency: 2412
- ChannelFlags: CCK+2GHz
- RU_channel1: []
- RU_channel2: []
- tlvs: []
- notdecoded: b''
-
-
-91: Layer_802.11:
- subtype: 1
- type: 0
- proto: 0
- ID: 14849
- addr1: 02:00:00:00:01:00
- addr2: 02:00:00:00:00:00
- addr3: 02:00:00:00:00:00
- SC: 784
-
-
-91: Layer_802.11 Association Response:
- cap: short-slot+ESS+privacy
- status: 0
- AID: 49153
-
-
-91: Layer_802.11 Rates:
- ID: 50
- len: 4
- rates: [48, 72, 96, 108]
-
-
-91: Layer_802.11 Information Element:
- ID: 127
- len: 8
- info: b'\x04\x00\x00\x00\x00\x00\x00@'
-
-
-91: Layer_802.11 Vendor Specific:
- ID: 221
- len: 24
- oui: 20722
- info: b"\x02\x01\x01\x00\x00\x03\xa4\x00\x00'\xa4\x00\x00BC^\x00b2/\x00"
-
-
-************************************* PACKET DETAIL *************************************
-
-92: Layer_RadioTap:
- version: 0
- pad: 0
- len: 14
- present: Flags+Channel
- Ext: []
- ChannelFrequency: 2412
- ChannelFlags: 2GHz
- RU_channel1: []
- RU_channel2: []
- tlvs: []
- notdecoded: b''
-
-
-92: Layer_802.11:
- subtype: 13
- type: 1
- proto: 0
- ID: 0
- addr1: 02:00:00:00:00:00
-
-
-************************************* PACKET DETAIL *************************************
-
-93: Layer_RadioTap:
- version: 0
- pad: 0
- len: 22
- present: TSFT+Flags+Rate+Channel
- Ext: []
- mac_timestamp: 1507043007085053
- Rate: 1.0
- ChannelFrequency: 2412
- ChannelFlags: CCK+2GHz
- RU_channel1: []
- RU_channel2: []
- tlvs: []
- notdecoded: b''
-
-
-93: Layer_802.11:
- subtype: 8
- type: 2
- proto: 0
- FCfield: from-DS
- ID: 14849
- addr1: 02:00:00:00:01:00
- addr2: 02:00:00:00:00:00
- addr3: 02:00:00:00:00:00
- SC: 0
-
-
-93: Layer_802.11 QoS:
- A_MSDU_Present: 0
- Ack_Policy: 0
- EOSP: 0
- TID: 7
- TXOP: 0
-
-
-93: Layer_LLC:
- dsap: 170
- ssap: 170
- ctrl: 3
-
-
-93: Layer_SNAP:
- OUI: 0
- code: 34958
-
-
-93: Layer_EAPOL:
- version: 2
- type: 3
- len: 95
- nonce: cd674591d5bc4cbf61512e10ce2c95a9719355d819a552e801f0a2b3a6ff2b57
-
-
-93: Layer_Raw:
- load: b'\x02\x00\x8a\x00\x10\x00\x00\x00\x00\x00\x00\x00\x01\xcdgE\x91\xd5\xbcL\xbfaQ.\x10\xce,\x95\xa9q\x93U\xd8\x19\xa5R\xe8\x01\xf0\xa2\xb3\xa6\xff+W\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
-
-
-************************************* PACKET DETAIL *************************************
-
-94: Layer_RadioTap:
- version: 0
- pad: 0
- len: 14
- present: Flags+Channel
- Ext: []
- ChannelFrequency: 2412
- ChannelFlags: 2GHz
- RU_channel1: []
- RU_channel2: []
- tlvs: []
- notdecoded: b''
-
-
-94: Layer_802.11:
- subtype: 13
- type: 1
- proto: 0
- ID: 0
- addr1: 02:00:00:00:00:00
-
-
-************************************* PACKET DETAIL *************************************
-
-95: Layer_RadioTap:
- version: 0
- pad: 0
- len: 22
- present: TSFT+Flags+Rate+Channel
- Ext: []
- mac_timestamp: 1507043007085885
- Rate: 1.0
- ChannelFrequency: 2412
- ChannelFlags: CCK+2GHz
- RU_channel1: []
- RU_channel2: []
- tlvs: []
- notdecoded: b''
-
-
-95: Layer_802.11:
- subtype: 8
- type: 2
- proto: 0
- FCfield: to-DS
- ID: 14849
- addr1: 02:00:00:00:00:00
- addr2: 02:00:00:00:01:00
- addr3: 02:00:00:00:00:00
- SC: 0
-
-
-95: Layer_802.11 QoS:
- A_MSDU_Present: 0
- Ack_Policy: 0
- EOSP: 0
- TID: 7
- TXOP: 0
-
-
-95: Layer_LLC:
- dsap: 170
- ssap: 170
- ctrl: 3
-
-
-95: Layer_SNAP:
- OUI: 0
- code: 34958
-
-
-95: Layer_EAPOL:
- version: 1
- type: 3
- len: 117
- nonce: 7dfdec9afd2d25b3da7889fb3aaad8b8867700188456727837a96d083fc81a4f
-
-
-95: Layer_Raw:
- load: b'\x02\x01\n\x00\x00\x00\x00\x00\x00\x00\x00\x00\x01}\xfd\xec\x9a\xfd-%\xb3\xdax\x89\xfb:\xaa\xd8\xb8\x86w\x00\x18\x84Vrx7\xa9m\x08?\xc8\x1aO\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\xecs\xe5\xc3\xee\xe36\xee\xa7\xff\x08\x9d\xe76W(\x00\x160\x14\x01\x00\x00\x0f\xac\x02\x01\x00\x00\x0f\xac\x04\x01\x00\x00\x0f\xac\x02\x00\x00'
-
-
-************************************* PACKET DETAIL *************************************
-
-96: Layer_RadioTap:
- version: 0
- pad: 0
- len: 14
- present: Flags+Channel
- Ext: []
- ChannelFrequency: 2412
- ChannelFlags: 2GHz
- RU_channel1: []
- RU_channel2: []
- tlvs: []
- notdecoded: b''
-
-
-96: Layer_802.11:
- subtype: 13
- type: 1
- proto: 0
- ID: 0
- addr1: 02:00:00:00:01:00
-
-
-************************************* PACKET DETAIL *************************************
-
-97: Layer_RadioTap:
- version: 0
- pad: 0
- len: 22
- present: TSFT+Flags+Rate+Channel
- Ext: []
- mac_timestamp: 1507043007086081
- Rate: 1.0
- ChannelFrequency: 2412
- ChannelFlags: CCK+2GHz
- RU_channel1: []
- RU_channel2: []
- tlvs: []
- notdecoded: b''
-
-
-97: Layer_802.11:
- subtype: 8
- type: 2
- proto: 0
- FCfield: from-DS
- ID: 14849
- addr1: 02:00:00:00:01:00
- addr2: 02:00:00:00:00:00
- addr3: 02:00:00:00:00:00
- SC: 16
-
-
-97: Layer_802.11 QoS:
- A_MSDU_Present: 0
- Ack_Policy: 0
- EOSP: 0
- TID: 7
- TXOP: 0
-
-
-97: Layer_LLC:
- dsap: 170
- ssap: 170
- ctrl: 3
-
-
-97: Layer_SNAP:
- OUI: 0
- code: 34958
-
-
-97: Layer_EAPOL:
- version: 2
- type: 3
- len: 175
- nonce: cd674591d5bc4cbf61512e10ce2c95a9719355d819a552e801f0a2b3a6ff2b57
-
-
-97: Layer_Raw:
- load: b'\x02\x13\xca\x00\x10\x00\x00\x00\x00\x00\x00\x00\x02\xcdgE\x91\xd5\xbcL\xbfaQ.\x10\xce,\x95\xa9q\x93U\xd8\x19\xa5R\xe8\x01\xf0\xa2\xb3\xa6\xff+W\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x04\xa7U\xde\xfb\x82A\x8a]\x0br\x08N\x1dj\xd0\x00P\xbe?\x02\xbd\xe3\x0f\xf8\x8a\x9f-p\x04\xf0f\x90\x95\xcc\x08\x19\t[J\xd5M\xdf3l\xf1\x86\x96N[\x08]\xe8\xb0@\xeev#f/\xb9\xbeUj#\x87q\x88\x92n\x033B\x04\x1f\xb1\t\xc9?2S\xfb\xc15\xd8G\xbe\xf7U\xcb\xe8V\xa03\x04\x7f\xfd\xf6'
-
-
-************************************* PACKET DETAIL *************************************
-
-98: Layer_RadioTap:
- version: 0
- pad: 0
- len: 14
- present: Flags+Channel
- Ext: []
- ChannelFrequency: 2412
- ChannelFlags: 2GHz
- RU_channel1: []
- RU_channel2: []
- tlvs: []
- notdecoded: b''
-
-
-98: Layer_802.11:
- subtype: 13
- type: 1
- proto: 0
- ID: 0
- addr1: 02:00:00:00:00:00
-
-
-************************************* PACKET DETAIL *************************************
-
-99: Layer_RadioTap:
- version: 0
- pad: 0
- len: 22
- present: TSFT+Flags+Rate+Channel
- Ext: []
- mac_timestamp: 1507043007086142
- Rate: 1.0
- ChannelFrequency: 2412
- ChannelFlags: CCK+2GHz
- RU_channel1: []
- RU_channel2: []
- tlvs: []
- notdecoded: b''
-
-
-99: Layer_802.11:
- subtype: 8
- type: 2
- proto: 0
- FCfield: from-DS
- ID: 14849
- addr1: 02:00:00:00:01:00
- addr2: 02:00:00:00:00:00
- addr3: 02:00:00:00:00:00
- SC: 32
-
-
-99: Layer_802.11 QoS:
- A_MSDU_Present: 0
- Ack_Policy: 0
- EOSP: 0
- TID: 7
- TXOP: 0
-
-
-99: Layer_LLC:
- dsap: 170
- ssap: 170
- ctrl: 3
-
-
-99: Layer_SNAP:
- OUI: 0
- code: 34958
-
-
-99: Layer_EAPOL:
- version: 2
- type: 3
- len: 95
- nonce: cd674591d5bc4cbf61512e10ce2c95a9719355d819a552e801f0a2b3a6ff2b57
-
-
-99: Layer_Raw:
- load: b'\x02\x00\x8a\x00\x10\x00\x00\x00\x00\x00\x00\x00\x03\xcdgE\x91\xd5\xbcL\xbfaQ.\x10\xce,\x95\xa9q\x93U\xd8\x19\xa5R\xe8\x01\xf0\xa2\xb3\xa6\xff+W\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
-
-
-************************************* PACKET DETAIL *************************************
-
-100: Layer_RadioTap:
- version: 0
- pad: 0
- len: 14
- present: Flags+Channel
- Ext: []
- ChannelFrequency: 2412
- ChannelFlags: 2GHz
- RU_channel1: []
- RU_channel2: []
- tlvs: []
- notdecoded: b''
-
-
-100: Layer_802.11:
- subtype: 13
- type: 1
- proto: 0
- ID: 0
- addr1: 02:00:00:00:00:00
-
-
-************************************* PACKET DETAIL *************************************
-
-101: Layer_RadioTap:
- version: 0
- pad: 0
- len: 22
- present: TSFT+Flags+Rate+Channel
- Ext: []
- mac_timestamp: 1507043007086182
- Rate: 1.0
- ChannelFrequency: 2412
- ChannelFlags: CCK+2GHz
- RU_channel1: []
- RU_channel2: []
- tlvs: []
- notdecoded: b''
-
-
-101: Layer_802.11:
- subtype: 8
- type: 2
- proto: 0
- FCfield: from-DS
- ID: 14849
- addr1: 02:00:00:00:01:00
- addr2: 02:00:00:00:00:00
- addr3: 02:00:00:00:00:00
- SC: 48
-
-
-101: Layer_802.11 QoS:
- A_MSDU_Present: 0
- Ack_Policy: 0
- EOSP: 0
- TID: 7
- TXOP: 0
-
-
-101: Layer_LLC:
- dsap: 170
- ssap: 170
- ctrl: 3
-
-
-101: Layer_SNAP:
- OUI: 0
- code: 34958
-
-
-101: Layer_EAPOL:
- version: 2
- type: 3
- len: 175
- nonce: cd674591d5bc4cbf61512e10ce2c95a9719355d819a552e801f0a2b3a6ff2b57
-
-
-101: Layer_Raw:
- load: b"\x02\x13\xca\x00\x10\x00\x00\x00\x00\x00\x00\x00\x03\xcdgE\x91\xd5\xbcL\xbfaQ.\x10\xce,\x95\xa9q\x93U\xd8\x19\xa5R\xe8\x01\xf0\xa2\xb3\xa6\xff+W\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\xf1`\x01\x83\xa7o\x80\xees\xe7\x16\xbd\xba\xda'V\x00P\xbe?\x02\xbd\xe3\x0f\xf8\x8a\x9f-p\x04\xf0f\x90\x95\xcc\x08\x19\t[J\xd5M\xdf3l\xf1\x86\x96N[\x08]\xe8\xb0@\xeev#f/\xb9\xbeUj#\x87q\x88\x92n\x033B\x04\x1f\xb1\t\xc9?2S\xfb\xc15\xd8G\xbe\xf7U\xcb\xe8V\xa03\x04\x7f\xfd\xf6"
-
-
-Blocking traffic for potential attackers.
-
-Potential Attackers detected in data/example-tptk-attack.pcapng
-  Source MAC: 02:00:00:00:01:00 (Packets: 3)
-  Blocked: 02:00:00:00:01:00
-
-  Source MAC: None (Packets: 8)
-  Blocked: None
-
-  Source MAC: 02:00:00:00:00:00 (Packets: 6)
-  Blocked: 02:00:00:00:00:00
+No.: 1
+Time: 1507043001.241762
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 2
+Time: 1507043001.344404
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 3
+Time: 1507043001.447092
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 4
+Time: 1507043001.548985
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 5
+Time: 1507043001.651232
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 6
+Time: 1507043001.753692
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 7
+Time: 1507043001.856056
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 8
+Time: 1507043001.958462
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 9
+Time: 1507043002.061233
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 10
+Time: 1507043002.16342
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 11
+Time: 1507043002.265733
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 12
+Time: 1507043002.368193
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 13
+Time: 1507043002.470591
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 14
+Time: 1507043002.573102
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 15
+Time: 1507043002.675572
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 16
+Time: 1507043002.777708
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 17
+Time: 1507043002.880225
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 18
+Time: 1507043002.982613
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 19
+Time: 1507043003.085039
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 20
+Time: 1507043003.187389
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 21
+Time: 1507043003.289913
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 22
+Time: 1507043003.39229
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 23
+Time: 1507043003.494502
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 24
+Time: 1507043003.572612
+Protocol: 802.11
+Subtype: Probe Request
+Seq. No.: 243
+Src: 02:00:00:00:01:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 25
+Time: 1507043003.572636
+Protocol: 802.11
+Subtype: Probe Request
+Seq. No.: 244
+Src: 02:00:00:00:01:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 26
+Time: 1507043003.572722
+Protocol: 802.11
+Subtype: Probe Response
+Seq. No.: 46
+Src: 02:00:00:00:00:00
+Dst: 02:00:00:00:01:00
+
+
+No.: 27
+Time: 1507043003.572723
+Protocol: 802.11
+Subtype: Action
+Dst: 02:00:00:00:00:00
+
+
+No.: 28
+Time: 1507043003.572777
+Protocol: 802.11
+Subtype: Probe Response
+Seq. No.: 47
+Src: 02:00:00:00:00:00
+Dst: 02:00:00:00:01:00
+
+
+No.: 29
+Time: 1507043003.572778
+Protocol: 802.11
+Subtype: Action
+Dst: 02:00:00:00:00:00
+
+
+No.: 30
+Time: 1507043003.601099
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 31
+Time: 1507043003.628598
+Protocol: 802.11
+Subtype: Probe Request
+Seq. No.: 245
+Src: 02:00:00:00:01:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 32
+Time: 1507043003.628609
+Protocol: 802.11
+Subtype: Probe Request
+Seq. No.: 246
+Src: 02:00:00:00:01:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 33
+Time: 1507043003.687113
+Protocol: 802.11
+Subtype: Probe Request
+Seq. No.: 247
+Src: 02:00:00:00:01:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 34
+Time: 1507043003.687171
+Protocol: 802.11
+Subtype: Probe Request
+Seq. No.: 248
+Src: 02:00:00:00:01:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 35
+Time: 1507043003.699684
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 36
+Time: 1507043003.740816
+Protocol: 802.11
+Subtype: Probe Request
+Seq. No.: 249
+Src: 02:00:00:00:01:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 37
+Time: 1507043003.740841
+Protocol: 802.11
+Subtype: Probe Request
+Seq. No.: 250
+Src: 02:00:00:00:01:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 38
+Time: 1507043003.796602
+Protocol: 802.11
+Subtype: Probe Request
+Seq. No.: 251
+Src: 02:00:00:00:01:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 39
+Time: 1507043003.79661
+Protocol: 802.11
+Subtype: Probe Request
+Seq. No.: 252
+Src: 02:00:00:00:01:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 40
+Time: 1507043003.802129
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 41
+Time: 1507043003.852713
+Protocol: 802.11
+Subtype: Probe Request
+Seq. No.: 253
+Src: 02:00:00:00:01:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 42
+Time: 1507043003.852733
+Protocol: 802.11
+Subtype: Probe Request
+Seq. No.: 254
+Src: 02:00:00:00:01:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 43
+Time: 1507043003.90746
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 44
+Time: 1507043003.909548
+Protocol: 802.11
+Subtype: Probe Request
+Seq. No.: 255
+Src: 02:00:00:00:01:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 45
+Time: 1507043003.909568
+Protocol: 802.11
+Subtype: Probe Request
+Seq. No.: 256
+Src: 02:00:00:00:01:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 46
+Time: 1507043003.967414
+Protocol: 802.11
+Subtype: Probe Request
+Seq. No.: 257
+Src: 02:00:00:00:01:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 47
+Time: 1507043003.967434
+Protocol: 802.11
+Subtype: Probe Request
+Seq. No.: 258
+Src: 02:00:00:00:01:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 48
+Time: 1507043004.006566
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 49
+Time: 1507043004.020707
+Protocol: 802.11
+Subtype: Probe Request
+Seq. No.: 259
+Src: 02:00:00:00:01:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 50
+Time: 1507043004.020728
+Protocol: 802.11
+Subtype: Probe Request
+Seq. No.: 260
+Src: 02:00:00:00:01:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 51
+Time: 1507043004.076808
+Protocol: 802.11
+Subtype: Probe Request
+Seq. No.: 261
+Src: 02:00:00:00:01:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 52
+Time: 1507043004.07684
+Protocol: 802.11
+Subtype: Probe Request
+Seq. No.: 262
+Src: 02:00:00:00:01:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 53
+Time: 1507043004.109376
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 54
+Time: 1507043004.134703
+Protocol: 802.11
+Subtype: Probe Request
+Seq. No.: 263
+Src: 02:00:00:00:01:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 55
+Time: 1507043004.134733
+Protocol: 802.11
+Subtype: Probe Request
+Seq. No.: 264
+Src: 02:00:00:00:01:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 56
+Time: 1507043004.211233
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 57
+Time: 1507043004.313682
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 58
+Time: 1507043004.416313
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 59
+Time: 1507043004.518452
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 60
+Time: 1507043004.622629
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 61
+Time: 1507043004.723272
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 62
+Time: 1507043004.825825
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 63
+Time: 1507043004.928107
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 64
+Time: 1507043005.03198
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 65
+Time: 1507043005.134508
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 66
+Time: 1507043005.235648
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 67
+Time: 1507043005.337734
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 68
+Time: 1507043005.440246
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 69
+Time: 1507043005.545008
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 70
+Time: 1507043005.644889
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 71
+Time: 1507043005.748869
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 72
+Time: 1507043005.850986
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 73
+Time: 1507043005.952549
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 74
+Time: 1507043006.054641
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 75
+Time: 1507043006.156935
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 76
+Time: 1507043006.259707
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 77
+Time: 1507043006.363859
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 78
+Time: 1507043006.465404
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 79
+Time: 1507043006.566735
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 80
+Time: 1507043006.673714
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 81
+Time: 1507043006.771309
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 82
+Time: 1507043006.87544
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 83
+Time: 1507043006.976909
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 84
+Time: 1507043007.078433
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 85
+Time: 1507043007.078803
+Protocol: 802.11
+Subtype: Authentication
+Seq. No.: 265
+Src: 02:00:00:00:01:00
+Dst: 02:00:00:00:00:00
+
+
+No.: 86
+Time: 1507043007.078808
+Protocol: 802.11
+Subtype: Action
+Dst: 02:00:00:00:01:00
+
+
+No.: 87
+Time: 1507043007.080049
+Protocol: 802.11
+Subtype: Authentication
+Seq. No.: 48
+Src: 02:00:00:00:00:00
+Dst: 02:00:00:00:01:00
+
+
+No.: 88
+Time: 1507043007.080052
+Protocol: 802.11
+Subtype: Action
+Dst: 02:00:00:00:00:00
+
+
+No.: 89
+Time: 1507043007.08104
+Protocol: 802.11
+Subtype: Association Request
+Seq. No.: 266
+Src: 02:00:00:00:01:00
+Dst: 02:00:00:00:00:00
+
+
+No.: 90
+Time: 1507043007.081043
+Protocol: 802.11
+Subtype: Action
+Dst: 02:00:00:00:01:00
+
+
+No.: 91
+Time: 1507043007.081296
+Protocol: 802.11
+Subtype: Association Response
+Seq. No.: 49
+Src: 02:00:00:00:00:00
+Dst: 02:00:00:00:01:00
+
+
+No.: 92
+Time: 1507043007.081299
+Protocol: 802.11
+Subtype: Action
+Dst: 02:00:00:00:00:00
+
+
+No.: 93
+Time: 1507043007.085054
+Protocol: EAPOL
+Subtype: Beacon
+Nonce: cd674591d5bc4cbf61512e10ce2c95a9719355d819a552e801f0a2b3a6ff2b57
+Src: 02:00:00:00:00:00
+Dst: 02:00:00:00:01:00
+
+
+No.: 94
+Time: 1507043007.085058
+Protocol: 802.11
+Subtype: Action
+Dst: 02:00:00:00:00:00
+
+
+No.: 95
+Time: 1507043007.085885
+Protocol: EAPOL
+Subtype: Beacon
+Nonce: 7dfdec9afd2d25b3da7889fb3aaad8b8867700188456727837a96d083fc81a4f
+Src: 02:00:00:00:01:00
+Dst: 02:00:00:00:00:00
+
+
+No.: 96
+Time: 1507043007.085888
+Protocol: 802.11
+Subtype: Action
+Dst: 02:00:00:00:01:00
+
+
+No.: 97
+Time: 1507043007.086081
+Protocol: EAPOL
+Subtype: Beacon
+Seq. No.: 1
+Nonce: cd674591d5bc4cbf61512e10ce2c95a9719355d819a552e801f0a2b3a6ff2b57
+Src: 02:00:00:00:00:00
+Dst: 02:00:00:00:01:00
+
+
+No.: 98
+Time: 1507043007.086084
+Protocol: 802.11
+Subtype: Action
+Dst: 02:00:00:00:00:00
+
+
+No.: 99
+Time: 1507043007.086142
+Protocol: EAPOL
+Subtype: Beacon
+Seq. No.: 2
+Nonce: cd674591d5bc4cbf61512e10ce2c95a9719355d819a552e801f0a2b3a6ff2b57
+Src: 02:00:00:00:00:00
+Dst: 02:00:00:00:01:00
+
+
+No.: 100
+Time: 1507043007.086143
+Protocol: 802.11
+Subtype: Action
+Dst: 02:00:00:00:00:00
+
+
+No.: 101
+Time: 1507043007.086182
+Protocol: EAPOL
+Subtype: Beacon
+Seq. No.: 3
+Nonce: cd674591d5bc4cbf61512e10ce2c95a9719355d819a552e801f0a2b3a6ff2b57
+Src: 02:00:00:00:00:00
+Dst: 02:00:00:00:01:00
+
+
+No.: 102
+Time: 1507043007.086183
+Protocol: 802.11
+Subtype: Action
+Dst: 02:00:00:00:00:00
+
+
+No.: 103
+Time: 1507043007.086423
+Protocol: EAPOL
+Subtype: Beacon
+Seq. No.: 1
+Nonce: 0000000000000000000000000000000000000000000000000000000000000000
+Src: 02:00:00:00:01:00
+Dst: 02:00:00:00:00:00
+
+
+No.: 104
+Time: 1507043007.086426
+Protocol: 802.11
+Subtype: Action
+Dst: 02:00:00:00:01:00
+
+
+No.: 105
+Time: 1507043007.087698
+Protocol: 802.11
+Subtype: Beacon
+Seq. No.: 2
+Src: 02:00:00:00:01:00
+Dst: 02:00:00:00:00:00
+
+
+No.: 106
+Time: 1507043007.0877
+Protocol: 802.11
+Subtype: Action
+Dst: 02:00:00:00:01:00
+
+
+No.: 107
+Time: 1507043007.087916
+Protocol: 802.11
+Subtype: Beacon
+Seq. No.: 3
+Src: 02:00:00:00:01:00
+Dst: 02:00:00:00:00:00
+
+
+No.: 108
+Time: 1507043007.087917
+Protocol: 802.11
+Subtype: Action
+Dst: 02:00:00:00:01:00
+
+
+No.: 109
+Time: 1507043007.181038
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 110
+Time: 1507043007.283307
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 111
+Time: 1507043007.388109
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 112
+Time: 1507043007.488424
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 113
+Time: 1507043007.590822
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 114
+Time: 1507043007.697773
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 115
+Time: 1507043007.797996
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 116
+Time: 1507043007.897886
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 117
+Time: 1507043008.000093
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 118
+Time: 1507043008.104733
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 119
+Time: 1507043008.208078
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 120
+Time: 1507043008.307938
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 121
+Time: 1507043008.409942
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 122
+Time: 1507043008.512797
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 123
+Time: 1507043008.618027
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 124
+Time: 1507043008.716966
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 125
+Time: 1507043008.819287
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 126
+Time: 1507043008.921681
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 127
+Time: 1507043009.026507
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 128
+Time: 1507043009.12676
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 129
+Time: 1507043009.22915
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 130
+Time: 1507043009.331487
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 131
+Time: 1507043009.43385
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 132
+Time: 1507043009.536255
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 133
+Time: 1507043009.638621
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 134
+Time: 1507043009.741008
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 135
+Time: 1507043009.843383
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 136
+Time: 1507043009.945857
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 137
+Time: 1507043010.048185
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 138
+Time: 1507043010.150608
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 139
+Time: 1507043010.253047
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 140
+Time: 1507043010.355459
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 141
+Time: 1507043010.458025
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 142
+Time: 1507043010.560222
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 143
+Time: 1507043010.662799
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 144
+Time: 1507043010.765065
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 145
+Time: 1507043010.867361
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 146
+Time: 1507043010.969856
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 147
+Time: 1507043011.072212
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 148
+Time: 1507043011.174559
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 149
+Time: 1507043011.276897
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 150
+Time: 1507043011.379377
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 151
+Time: 1507043011.481853
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 152
+Time: 1507043011.584254
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 153
+Time: 1507043011.686651
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 154
+Time: 1507043011.789201
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 155
+Time: 1507043011.891457
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 156
+Time: 1507043011.994166
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 157
+Time: 1507043012.096067
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 158
+Time: 1507043012.19854
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 159
+Time: 1507043012.300858
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 160
+Time: 1507043012.403618
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 161
+Time: 1507043012.506007
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 162
+Time: 1507043012.608276
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 163
+Time: 1507043012.711083
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 164
+Time: 1507043012.81302
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 165
+Time: 1507043012.915328
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 166
+Time: 1507043013.0181
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 167
+Time: 1507043013.12011
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 168
+Time: 1507043013.222565
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 169
+Time: 1507043013.325249
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 170
+Time: 1507043013.427446
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 171
+Time: 1507043013.529792
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 172
+Time: 1507043013.632539
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 173
+Time: 1507043013.734631
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 174
+Time: 1507043013.836989
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 175
+Time: 1507043013.939379
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 176
+Time: 1507043014.041815
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 177
+Time: 1507043014.14425
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 178
+Time: 1507043014.246601
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 179
+Time: 1507043014.348966
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 180
+Time: 1507043014.451407
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 181
+Time: 1507043014.554249
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 182
+Time: 1507043014.656137
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 183
+Time: 1507043014.758574
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 184
+Time: 1507043014.860855
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 185
+Time: 1507043014.963648
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 186
+Time: 1507043015.066823
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 187
+Time: 1507043015.16819
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 188
+Time: 1507043015.270786
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 189
+Time: 1507043015.376714
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 190
+Time: 1507043015.475618
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 191
+Time: 1507043015.577869
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 192
+Time: 1507043015.681685
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 193
+Time: 1507043015.783098
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 194
+Time: 1507043015.886546
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 195
+Time: 1507043015.891661
+Protocol: 802.11
+Subtype: Beacon
+Seq. No.: 4
+Src: 02:00:00:00:00:00
+Dst: 02:00:00:00:01:00
+
+
+No.: 196
+Time: 1507043015.891673
+Protocol: 802.11
+Subtype: Action
+Dst: 02:00:00:00:00:00
+
+
+No.: 197
+Time: 1507043015.988154
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 198
+Time: 1507043016.092089
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 199
+Time: 1507043016.192206
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 200
+Time: 1507043016.297649
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 201
+Time: 1507043016.392514
+Protocol: 802.11
+Subtype: Beacon
+Seq. No.: 5
+Src: 02:00:00:00:00:00
+Dst: 02:00:00:00:01:00
+
+
+No.: 202
+Time: 1507043016.392519
+Protocol: 802.11
+Subtype: Action
+Dst: 02:00:00:00:00:00
+
+
+No.: 203
+Time: 1507043016.396973
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 204
+Time: 1507043016.500109
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 205
+Time: 1507043016.606032
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 206
+Time: 1507043016.704229
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 207
+Time: 1507043016.807406
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 208
+Time: 1507043016.909721
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 209
+Time: 1507043017.01138
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 210
+Time: 1507043017.113935
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 211
+Time: 1507043017.216169
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 212
+Time: 1507043017.318722
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 213
+Time: 1507043017.396368
+Protocol: 802.11
+Subtype: Beacon
+Seq. No.: 6
+Src: 02:00:00:00:00:00
+Dst: 02:00:00:00:01:00
+
+
+No.: 214
+Time: 1507043017.396374
+Protocol: 802.11
+Subtype: Action
+Dst: 02:00:00:00:00:00
+
+
+No.: 215
+Time: 1507043017.421778
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 216
+Time: 1507043017.523441
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 217
+Time: 1507043017.625849
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 218
+Time: 1507043017.728253
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 219
+Time: 1507043017.83344
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 220
+Time: 1507043017.934668
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 221
+Time: 1507043018.035862
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 222
+Time: 1507043018.137899
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 223
+Time: 1507043018.244305
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 224
+Time: 1507043018.342914
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 225
+Time: 1507043018.397107
+Protocol: 802.11
+Subtype: Beacon
+Seq. No.: 7
+Src: 02:00:00:00:00:00
+Dst: 02:00:00:00:01:00
+
+
+No.: 226
+Time: 1507043018.397112
+Protocol: 802.11
+Subtype: Action
+Dst: 02:00:00:00:00:00
+
+
+No.: 227
+Time: 1507043018.445008
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 228
+Time: 1507043018.547583
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 229
+Time: 1507043018.649843
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 230
+Time: 1507043018.754306
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 231
+Time: 1507043018.855767
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 232
+Time: 1507043018.956897
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 233
+Time: 1507043019.059368
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 234
+Time: 1507043019.161824
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 235
+Time: 1507043019.265452
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 236
+Time: 1507043019.367151
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 237
+Time: 1507043019.398505
+Protocol: 802.11
+Subtype: Deauthentication
+Seq. No.: 50
+Src: 02:00:00:00:00:00
+Dst: 02:00:00:00:01:00
+
+
+No.: 238
+Time: 1507043019.398507
+Protocol: 802.11
+Subtype: Action
+Dst: 02:00:00:00:00:00
+
+
+No.: 239
+Time: 1507043019.468968
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 240
+Time: 1507043019.548781
+Protocol: 802.11
+Subtype: Probe Request
+Seq. No.: 267
+Src: 02:00:00:00:01:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 241
+Time: 1507043019.548827
+Protocol: 802.11
+Subtype: Probe Request
+Seq. No.: 268
+Src: 02:00:00:00:01:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 242
+Time: 1507043019.548934
+Protocol: 802.11
+Subtype: Probe Response
+Seq. No.: 51
+Src: 02:00:00:00:00:00
+Dst: 02:00:00:00:01:00
+
+
+No.: 243
+Time: 1507043019.548937
+Protocol: 802.11
+Subtype: Action
+Dst: 02:00:00:00:00:00
+
+
+No.: 244
+Time: 1507043019.549031
+Protocol: 802.11
+Subtype: Probe Response
+Seq. No.: 52
+Src: 02:00:00:00:00:00
+Dst: 02:00:00:00:01:00
+
+
+No.: 245
+Time: 1507043019.549032
+Protocol: 802.11
+Subtype: Action
+Dst: 02:00:00:00:00:00
+
+
+No.: 246
+Time: 1507043019.57138
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 247
+Time: 1507043019.604609
+Protocol: 802.11
+Subtype: Probe Request
+Seq. No.: 269
+Src: 02:00:00:00:01:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 248
+Time: 1507043019.604624
+Protocol: 802.11
+Subtype: Probe Request
+Seq. No.: 270
+Src: 02:00:00:00:01:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 249
+Time: 1507043019.660624
+Protocol: 802.11
+Subtype: Probe Request
+Seq. No.: 271
+Src: 02:00:00:00:01:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 250
+Time: 1507043019.660642
+Protocol: 802.11
+Subtype: Probe Request
+Seq. No.: 272
+Src: 02:00:00:00:01:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 251
+Time: 1507043019.673635
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 252
+Time: 1507043019.71674
+Protocol: 802.11
+Subtype: Probe Request
+Seq. No.: 273
+Src: 02:00:00:00:01:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 253
+Time: 1507043019.716759
+Protocol: 802.11
+Subtype: Probe Request
+Seq. No.: 274
+Src: 02:00:00:00:01:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 254
+Time: 1507043019.772651
+Protocol: 802.11
+Subtype: Probe Request
+Seq. No.: 275
+Src: 02:00:00:00:01:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 255
+Time: 1507043019.772671
+Protocol: 802.11
+Subtype: Probe Request
+Seq. No.: 276
+Src: 02:00:00:00:01:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 256
+Time: 1507043019.776617
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 257
+Time: 1507043019.828693
+Protocol: 802.11
+Subtype: Probe Request
+Seq. No.: 277
+Src: 02:00:00:00:01:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 258
+Time: 1507043019.828706
+Protocol: 802.11
+Subtype: Probe Request
+Seq. No.: 278
+Src: 02:00:00:00:01:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 259
+Time: 1507043019.878551
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 260
+Time: 1507043019.884632
+Protocol: 802.11
+Subtype: Probe Request
+Seq. No.: 279
+Src: 02:00:00:00:01:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 261
+Time: 1507043019.884643
+Protocol: 802.11
+Subtype: Probe Request
+Seq. No.: 280
+Src: 02:00:00:00:01:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 262
+Time: 1507043019.940628
+Protocol: 802.11
+Subtype: Probe Request
+Seq. No.: 281
+Src: 02:00:00:00:01:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 263
+Time: 1507043019.940649
+Protocol: 802.11
+Subtype: Probe Request
+Seq. No.: 282
+Src: 02:00:00:00:01:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 264
+Time: 1507043019.980924
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 265
+Time: 1507043019.996684
+Protocol: 802.11
+Subtype: Probe Request
+Seq. No.: 283
+Src: 02:00:00:00:01:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 266
+Time: 1507043019.996705
+Protocol: 802.11
+Subtype: Probe Request
+Seq. No.: 284
+Src: 02:00:00:00:01:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 267
+Time: 1507043020.052819
+Protocol: 802.11
+Subtype: Probe Request
+Seq. No.: 285
+Src: 02:00:00:00:01:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 268
+Time: 1507043020.052842
+Protocol: 802.11
+Subtype: Probe Request
+Seq. No.: 286
+Src: 02:00:00:00:01:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 269
+Time: 1507043020.083886
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 270
+Time: 1507043020.109224
+Protocol: 802.11
+Subtype: Probe Request
+Seq. No.: 287
+Src: 02:00:00:00:01:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 271
+Time: 1507043020.109234
+Protocol: 802.11
+Subtype: Probe Request
+Seq. No.: 288
+Src: 02:00:00:00:01:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 272
+Time: 1507043020.185765
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 273
+Time: 1507043020.288608
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 274
+Time: 1507043020.392808
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 275
+Time: 1507043020.494721
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 276
+Time: 1507043020.595716
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 277
+Time: 1507043020.699373
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 278
+Time: 1507043020.801538
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 279
+Time: 1507043020.902806
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 280
+Time: 1507043021.006087
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 281
+Time: 1507043021.107885
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 282
+Time: 1507043021.209808
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 283
+Time: 1507043021.312284
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 284
+Time: 1507043021.414592
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
+
+No.: 285
+Time: 1507043021.517076
+Protocol: 802.11
+Subtype: Beacon
+Src: 02:00:00:00:00:00
+Dst: ff:ff:ff:ff:ff:ff
+
 
