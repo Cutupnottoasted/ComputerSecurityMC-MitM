@@ -1,5 +1,8 @@
+************************************* PCAP FILE OUTPUT *************************************
+
 ============================== DATA/EXAMPLE-TPTK-ATTACK.PCAPNG ==============================
 Successfully read 285 packets from data/example-tptk-attack.pcapng
+
 No.: 1
 Time: 1507043001.241762
 Protocol: 802.11
@@ -2327,4 +2330,6 @@ Subtype: Beacon
 Src: 02:00:00:00:00:00
 Dst: ff:ff:ff:ff:ff:ff
 
+
+============================== DATA/EXAMPLE-TPTK-ATTACK.PCAPNG ==============================
 
