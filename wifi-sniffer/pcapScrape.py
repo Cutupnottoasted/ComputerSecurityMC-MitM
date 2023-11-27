@@ -10,7 +10,7 @@ from scapy.layers.eap import EAPOL
 
 
 # header vars
-# 'example-ft.pcapng', 'ipv4frags.pcap', 'nf9-juniper-vmx.pcapng.cap', 'smtp.pcap', 'teardrop.cap', 'nf9-error.pcapng.cap'
+# 'example-ft.pcapng', 'ipv4frags.pcap', 'nf9-juniper-vmx.pcapng.cap', 'smtp.pcap', 'teardrop.cap', 'nf9-error.pcapng.cap', 'example-tptk-success.pcap'
 FILES = ['example-tptk-attack.pcapng']
 
 """ ********************************************** INITIATE LOGGING ********************************************** """
@@ -155,7 +155,7 @@ def process_pcap(pcap_file, block_traffic=False):
                     info_logger.info(f"Source Port: {src_port}, Destination Port: {dst_port}, Protocol: {protocol}")
     
     for packet_number, packet in enumerate(packets, 1):
-        if packet_number < 102 and packet_number > 85:
+        if packet_number < 102 and packet_number > 84:
             process_packet(packet, packet_number)
 
     # Print blocking simulation if there are potential attackers and block_traffic is enabled

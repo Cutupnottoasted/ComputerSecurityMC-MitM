@@ -8,3 +8,8 @@ example-tptk-attack.pcapng
 - has 4 way handshake 
     - is repeated with duplicate nonce value
 - is deauthenticated at the end but is not signifier 
+
+example-tptk-success.pcap
+- includes beacon frames/ probe responses + 4way handshake
+- a retransmission occurs after step 4
+- both transmissions exclude step 2

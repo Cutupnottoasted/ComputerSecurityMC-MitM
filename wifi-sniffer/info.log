@@ -5,6 +5,41 @@
 Successfully read 285 packets from data/example-tptk-attack.pcapng
 ************************************* PACKET DETAIL *************************************
 
+85: Layer_RadioTap:
+ version: 0
+ pad: 0
+ len: 22
+ present: TSFT+Flags+Rate+Channel
+ Ext: []
+ mac_timestamp: 1507043007078803
+ Rate: 1.0
+ ChannelFrequency: 2412
+ ChannelFlags: CCK+2GHz
+ RU_channel1: []
+ RU_channel2: []
+ tlvs: []
+ notdecoded: b''
+
+
+85: Layer_802.11:
+ subtype: 11
+ type: 0
+ proto: 0
+ ID: 14849
+ addr1: 02:00:00:00:00:00
+ addr2: 02:00:00:00:01:00
+ addr3: 02:00:00:00:00:00
+ SC: 4240
+
+
+85: Layer_802.11 Authentication:
+ algo: 0
+ seqnum: 1
+ status: 0
+
+
+************************************* PACKET DETAIL *************************************
+
 86: Layer_RadioTap:
  version: 0
  pad: 0
@@ -667,12 +702,12 @@ Successfully read 285 packets from data/example-tptk-attack.pcapng
 Blocking traffic for potential attackers.
 
 Potential Attackers detected in data/example-tptk-attack.pcapng
+  Source MAC: 02:00:00:00:01:00 (Packets: 3)
+  Blocked: 02:00:00:00:01:00
+
   Source MAC: None (Packets: 8)
   Blocked: None
 
   Source MAC: 02:00:00:00:00:00 (Packets: 6)
   Blocked: 02:00:00:00:00:00
-
-  Source MAC: 02:00:00:00:01:00 (Packets: 2)
-  Blocked: 02:00:00:00:01:00
 
