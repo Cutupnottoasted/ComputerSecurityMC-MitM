@@ -20,6 +20,15 @@ log_formatter = logging.Formatter('%(asctime)s %(levelname)s:%(message)s')
 file_handler.setFormatter(log_formatter) # configure file_handler
 error_logger.addHandler(file_handler)
 
+# Create a new logger for suspicious packets
+suspicious_logger = logging.getLogger('suspicious_logger')
+suspicious_logger.setLevel(logging.INFO)
+suspicious_logger.propagate = False
+file_handler_suspicious = logging.FileHandler('suspicious_packets.log', mode='w')
+file_handler_suspicious.setLevel(logging.INFO)
+suspicious_logger.addHandler(file_handler_suspicious)
+
+
 # initiate info logger
 
 # print statements
@@ -197,6 +206,18 @@ def main(pcap):
     pcap_info = process_pcap(pcap_file)
     analyze_packets(pcap_info)
 
+    # Create error, info, and security loggers as before
+    # ...
+
+    # Create a new logger for suspicious packets
+    suspicious_logger = logging.getLogger('suspicious_logger')
+    suspicious_logger.setLevel(logging.INFO)
+    suspicious_logger.propagate = False
+    file_handler_suspicious = logging.FileHandler('suspicious_packets.log', mode='w')
+    file_handler_suspicious.setLevel(logging.INFO)
+    suspicious_logger.addHandler(file_handler_suspicious)
+
+    # Process probe requests and log information
     potential_attacks = pull_probe_requests(pcap_info)
     for attack in potential_attacks:
         audit, flag = audit_probe_requests(attack)
@@ -204,14 +225,22 @@ def main(pcap):
         packet_numbers = [num for num, _ in attack]
         security_logger.warning(f'Suspicious Packets in {pcap_file}: {packet_numbers}\n')
 
+        # Log details of suspicious packets to the new log file
+        for num, _ in attack:
+            suspicious_logger.info(f'Packet Details for Suspicious Packet {num} in {pcap_file}:\n')
+            for packet in pcap_info:
+                if packet['No.'] == num:
+                    for key, value in packet.items():
+                        suspicious_logger.info(f'{key}: {value}')
+                    suspicious_logger.info('\n')
+
+    # Process EAPOL requests and log information
     potential_attacks = pull_eapol(pcap_info)
     for attack in potential_attacks:
         audit, flag = audit_eapol(attack)
         if audit:
             security_logger.warning(f'{audit} -- Block Traffic: {flag} File: {pcap_file}\n')
 
+    # Log separation lines in info and security log files
     info_logger.info(f'============================== {pcap_file.upper()} ==============================\n')
     security_logger.warning(f'============================== {pcap_file.upper()} ==============================\n')
-
-if __name__ == '__main__':
-    main()
