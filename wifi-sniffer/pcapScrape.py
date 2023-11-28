@@ -1,43 +1,46 @@
-# imports
-# formatting/debugging
-import logging
-from decimal import Decimal
-# pcap library
-from scapy.all import *
+import logging # formatting/debugging
+from scapy.all import * # pcap library
 from scapy.layers.dot11 import Dot11
 
-# 'example-ft.pcapng', 'ipv4frags.pcap', 'nf9-juniper-vmx.pcapng.cap', 'smtp.pcap', 'teardrop.cap', 'nf9-error.pcapng.cap', 'example-tptk-success.pcap'
-FILES = ['example-tptk-attack.pcapng']
-
-""" ********************************************** INITIATE LOGGING ********************************************** """
+file_handlers = []
 # initiate error logger
 error_logger = logging.getLogger('error_logger')
 error_logger.setLevel(logging.ERROR)
 error_logger.propagate = False
 file_handler = logging.FileHandler('error.log', mode='w')
-# formatter
+file_handlers.append(file_handler)
 log_formatter = logging.Formatter('%(asctime)s %(levelname)s:%(message)s')
 file_handler.setFormatter(log_formatter) # configure file_handler
 error_logger.addHandler(file_handler)
 
-# initiate info logger
+# Create a new logger for suspicious packets
+suspicious_logger = logging.getLogger('suspicious_logger')
+suspicious_logger.setLevel(logging.INFO)
+suspicious_logger.propagate = False
+file_handler = logging.FileHandler('suspicious_packets.log', mode='w')
+file_handlers.append(file_handler)
+file_handler.setLevel(logging.INFO)
+suspicious_logger.addHandler(file_handler)
 
-# print statements
+# initiate info logger
 info_logger = logging.getLogger('info_logger')
 info_logger.setLevel(logging.INFO)
 info_logger.propagate = False
-# file handler
 file_handler = logging.FileHandler('info.log',  mode='w') # reset every run
+file_handlers.append(file_handler)
 file_handler.setLevel(logging.INFO)
 info_logger.addHandler(file_handler)
 
+# initiate security logger
 security_logger = logging.getLogger('security_logger')
 security_logger.setLevel(logging.WARNING)
 security_logger.propagate = False
 file_handler = logging.FileHandler('security.log', mode='w')
+file_handlers.append(file_handler)
 file_handler.setLevel(logging.WARNING)
 security_logger.addHandler(file_handler)
 
+# Initial log statements
 info_logger.info("************************************* PCAP FILE OUTPUT *************************************\n")
 security_logger.warning("************************************* PCAP FILE WARNINGS *************************************\n")
 
@@ -49,7 +52,7 @@ def extract_nonce(raw_payload):
     nonce = raw_payload[start_offset:start_offset + length]
     return nonce.hex() # convert to hexstring
 
-# Find's subtype correct classification
+# Function to identify subtype based on a given number
 def identify_subtype(n):
     if n == 0:
         return 'Association Request'
@@ -66,9 +69,9 @@ def identify_subtype(n):
     if n == 12:
         return 'Deauthentication'
     if n == 13: 
-        return 'Action' # Receipt acknowledgement
-    
-# Takes pcap packet bundles and outputs to info.log
+        return 'Action' # receipt acknowledgement
+
+# Function to audit probe requests and check for suspicious behavior
 def analyze_packets(pcap_info):
     for packet in pcap_info:
         for key, value in packet.items():
@@ -76,14 +79,8 @@ def analyze_packets(pcap_info):
                 info_logger.info(f'{key}: {value}')
         info_logger.info('\n')
 
-# process_pcap()
-# input:
-#   pcap_file: the path to target pcap_file
-# output:
-#   pcap_info: a list containing processed packet data
-#   
-# Reads pcap_file and then sends read packets into process_packet()
-# Target fields are assigned to packet_info struct then appended into pcap_info
+
+# Function to process pcap file and create a dictionary of frame info
 def process_pcap(pcap_file):
     packets = [] # avoid None error
     try:
@@ -96,14 +93,7 @@ def process_pcap(pcap_file):
 
     pcap_info = [] 
 
-    # process_packet()
-    # input:
-    #   packet: indvidual packet
-    #   packet_number: packet number in .pcap file
-    # 
-    # Takes read packets from process_pcap and extracts target
-    # data and assignes it to packet_info structure. 
-    # completed packet_info is appended to pcap_info list
+    # Takes read packets from process_pcap and appends to pcap_info
     def process_packet(packet, packet_number):
         packet_info = {
             'No.': packet_number,
@@ -131,50 +121,39 @@ def process_pcap(pcap_file):
             packet_info['Nonce'] = extract_nonce(packet.load)
         
         pcap_info.append(packet_info) # append extracted fields into pcap_info list
-        
+    
     # process all read packets in pcap_file
     for packet_number, packet in enumerate(packets, 1):
         process_packet(packet, packet_number)
-    
+        
+    # Set the effective level of the logger to INFO
+    info_logger.setLevel(logging.INFO)
+    analyze_packets(pcap_info)
+            
     return pcap_info
 
-# audit_probe_requests()
-# input:
-#   attacks: contains burst of probe requests
-# output:
-#   audit: string containing security message
-#   flag: if true then block traffic
 # if the total packets_per_sec is > 1.0 then flag issue
-def audit_probe_requests(attacks):
+def audit_probe_requests(attack):
     flag = False
-    packets_per_sec = len(attacks) / attacks[-1][1] # Packets/sec = total target packets / total transmission time
-    audit = f'Total Requests: {len(attacks)} Total Time: {attacks[-1][1]} Packets/Sec: {packets_per_sec}'
-    if packets_per_sec > 1.0:
+    packets_per_sec = attack[-1][1] / len(attack) # Packets/sec = total target packets / total transmission time
+    audit = f'Total Requests: {len(attack)} Total Time: {attack[-1][1]} Packets/Sec: {packets_per_sec}'
+    if packets_per_sec < 1.0:
         flag = True
     return audit, flag
 
-# pull_probe_requests()
-# input: 
-#   pcap_info: Contains all target fields extracted from process_packet()
-#   window = 1.0: If packets/sec are > 1.0 seconds then flag
-#   threshhold = 10: If number of packets_in_window > 10 then
-#       update set() and append to potential attacks.
-# output:
-#   potential_attacks: list containing all extracted probe requests
-#
 # Packets are extracted in bursts depending on the condition of packet capture
 def pull_probe_requests(pcap_info, window=1.0, threshold=10):
+    # insert packet field values Time and No. that are 802.11/Probe Request
+    probe_requests = [(packet['Time'], packet['No.']) for packet in pcap_info 
+                        if packet['Protocol'] == '802.11' and packet.get('Subtype') == 'Probe Request']
 
-    # for values packet(Time, No.) in pcap_info, if packet's protocol is 802.11 and Subtype is Probe Request then insert into probe_requests
-    probe_requests = [(packet['Time'], packet['No.']) for packet in pcap_info if packet['Protocol'] == '802.11' and packet.get('Subtype') == 'Probe Request']
-
-    potential_attacks = [] 
+    potential_attacks = []
     seen_packets = set()  # store packet numbers already seen
 
     for i in range(len(probe_requests)):
         current_time, cur_packet_num = probe_requests[i]
 
-        # skip seen packets
+        # skip if seen
         if cur_packet_num in seen_packets:
             continue
 
@@ -191,26 +170,19 @@ def pull_probe_requests(pcap_info, window=1.0, threshold=10):
         
         if len(packets_in_window) >= threshold: # if window is full
             potential_attacks.append(packets_in_window)
-            seen_packets.update(num for num, _ in packets_in_window)  # Add these packets to the set of counted packets
+            seen_packets.update(num for num, _ in packets_in_window)   # Add these packets to the set of counted packets
 
     return potential_attacks
 
-# audit_eapol()
-# input:
-#   attacks: a tuple of n packets containing packet number and nonce value
-# output:
-#   audit: the results from packet analysis
-#   flag: if true block_traffic
-#
 # Searches for duplicate nonce values and reports if found
-def audit_eapol(attacks): 
+def audit_eapol(attack):
     seen_nonce = {}
     flag = False 
     audit = None
     dup_nonce = None
 
     # for tuple packet_num and nonce in attacks
-    for packet_num, nonce in attacks:
+    for packet_num, nonce in attack:
         if nonce in seen_nonce: # if nonce already seen
             flag = True
             dup_nonce = nonce
@@ -218,21 +190,15 @@ def audit_eapol(attacks):
         else:
             seen_nonce[nonce] = [packet_num]
     # if flag true then get packet_numbers and duplicate nonce
-    if flag: 
+    if flag:
         packet_numbers = seen_nonce[dup_nonce]
         audit = f'Duplicate nonce {dup_nonce} found in packets: {packet_numbers}'
 
     return audit, flag
 
-# pull_eapol()
-# input:
-#   pcap_info: contains all extracted fields from each packet
-# output:
-#   potential_attackers: contains all 4-way-handshakes packets that had duplicate nonce values
-#
 # pulls all 4-way-handshake between client and host
 def pull_eapol(pcap_info):
-    # for values packet(No., Nonce) in pcap_info, if Protocol EAPOL and Subtype Beacon then insert to eapol_requests
+    # for values packet(No., Nonce) in pcap_info, if Protocol EAPOL and Subtype Beacon then insert to eapol_requests    
     eapol_requests = [(packet['No.'], packet['Nonce']) for packet in pcap_info if packet['Protocol'] == 'EAPOL' and packet.get('Subtype') == 'Beacon']
 
     potential_attacks = []
@@ -249,28 +215,82 @@ def pull_eapol(pcap_info):
     return potential_attacks
 
      
-def main():
-    # for all pcap_files in the data directory
-    for pcap_file in FILES:
-        pcap_file = f'data/{pcap_file}'
-        pcap_info = process_pcap(pcap_file) # open and structure pcap data
-        analyze_packets(pcap_info) # analyze structure data
+def main(pcap):
+    pcap_file = f'{pcap}'
+    pcap_info = process_pcap(pcap_file)
+    analyze_packets(pcap_info)
 
-    potential_attacks = pull_probe_requests(pcap_info) # pull all probe requests
-    for attack in potential_attacks: # audit probe requests by burst
-        audit, flag = audit_probe_requests(attack) 
+    # Create error, info, and security loggers as before
+    # ...
+    error_logger = logging.getLogger('error_logger')
+    error_logger.setLevel(logging.ERROR)
+    error_logger.propagate = False
+    file_handler = logging.FileHandler('error.log', mode='w')
+    file_handlers.append(file_handler)
+    # formatter
+    log_formatter = logging.Formatter('%(asctime)s %(levelname)s:%(message)s')
+    file_handler.setFormatter(log_formatter) # configure file_handler
+    error_logger.addHandler(file_handler)
+    
+    # initiate info logger
+    
+    # print statements
+    info_logger = logging.getLogger('info_logger')
+    info_logger.setLevel(logging.INFO)
+    info_logger.propagate = False
+    # file handler
+    file_handler = logging.FileHandler('info.log',  mode='w') # reset every run
+    file_handlers.append(file_handler)
+    file_handler.setLevel(logging.INFO)
+    info_logger.addHandler(file_handler)
+    
+    security_logger = logging.getLogger('security_logger')
+    security_logger.setLevel(logging.WARNING)
+    security_logger.propagate = False
+    file_handler = logging.FileHandler('security.log', mode='w')
+    file_handlers.append(file_handler)
+    file_handler.setLevel(logging.WARNING)
+    security_logger.addHandler(file_handler)
+    # Create a new logger for suspicious packets
+    suspicious_logger = logging.getLogger('suspicious_logger')
+    suspicious_logger.setLevel(logging.INFO)
+    suspicious_logger.propagate = False
+    file_handler = logging.FileHandler('suspicious_packets.log', mode='w')
+    file_handlers.append(file_handler)
+    file_handler.setLevel(logging.INFO)
+    suspicious_logger.addHandler(file_handler)
+
+    
+    # Set the effective level of the logger to INFO
+    info_logger.setLevel(logging.INFO)
+    analyze_packets(pcap_info)
+    
+    # Process probe requests and log information
+    potential_attacks = pull_probe_requests(pcap_info)
+    for attack in potential_attacks:
+        audit, flag = audit_probe_requests(attack)
         security_logger.warning(f'{audit} -- Block Traffic: {flag}')
         packet_numbers = [num for num, _ in attack] # grab all packets numbers in burst
         security_logger.warning(f'Suspicious Packets in {pcap_file}: {packet_numbers}\n')
 
-    potential_attacks = pull_eapol(pcap_info) # pull all 4-way-handshakes
-    for attacks in potential_attacks: # audit each 4-way-handshake session
-        audit, flag = audit_eapol(attacks)
+        # Log details of suspicious packets to the new log file
+        for num, _ in attack:
+            suspicious_logger.info(f'Packet Details for Suspicious Packet {num} in {pcap_file}:\n')
+            for packet in pcap_info:
+                if packet['No.'] == num:
+                    for key, value in packet.items():
+                        suspicious_logger.info(f'{key}: {value}')
+                    suspicious_logger.info('\n')
+
+    # Process EAPOL requests and log information
+    potential_attacks = pull_eapol(pcap_info)
+    for attack in potential_attacks:
+        audit, flag = audit_eapol(attack)
         if audit:
             security_logger.warning(f'{audit} -- Block Traffic: {flag} File: {pcap_file}\n')
 
+    # Log separation lines in info and security log files
     info_logger.info(f'============================== {pcap_file.upper()} ==============================\n')
     security_logger.warning(f'============================== {pcap_file.upper()} ==============================\n')
-
-if __name__ == '__main__':
-    main()
+    for handler in file_handlers:
+        handler.close()
