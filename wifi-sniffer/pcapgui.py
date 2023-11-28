@@ -23,12 +23,6 @@ def run_pcapScrape():
    # Get the current option
   current_option = drop_down_menu.cget("text")
   # Clear the info.log file
-  with open('info.log', 'w'):
-      pass
-  with open('security.log', 'w'):
-      pass
-  with open('error.log', 'w'):
-      pass
 
   # Pass the current option to the main function
   pcapScrape.main(current_option)
