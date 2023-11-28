@@ -1,0 +1,9 @@
+importlib-metadata==6.8.0
+importlib-resources==6.1.1
+libpcap==1.11.0b7
+packaging==23.2
+pkg-about==1.0.8
+scapy==2.5.0
+setuptools==69.0.2
+tomli==2.0.1
+zipp==3.17.0

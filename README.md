@@ -1,45 +1,60 @@
-# ComputerSecurityMC-MitM
+# ComputerSecurityMC-MitM - Wifi-Sniffer (pcap analyzer)
 
-### SCRIPTS
-Scripts used to detect WPA-1&2 nonce value duplication and a script to demonstrate Krack attacks
+## Description
+This program is used to detect suspicious activity by analyzing pcap files.
+It is able to detect rapid probe requests and duplicate nonce values that occur during 4-Way-Handshakes. 
+A user can choose from a list of pcap files or can browse their directory. If a suspicious activity is
+detected the user can view the entire capture or download the suspicous packets
 
-### WIG-NG
-WIGS-NG
+## Prerequisites
 
-## Installation 
-pip install wig-ng
+- Python 3.3 or later
 
-## Supported Protocols & Standards
+## Suported Protocols & Standards 
 
- - WiFi Protected Setup (WPS)
- - WiFi-Direct (P2P)
- - Cisco Client Extension (CCX)
- - Apple Wireless Direct Link (AWDL)
- - HP Printers Proprietary Information Element
+ - Extensible Authenticaiton Protocol over Lan (EAPOL)
+ - Wi-Fi Protected Access 2 (WPA2)
+ - IEEE 802.11 (802.11)
 
-## Usage
+## Step 1: Install the venv module
 
-<pre>
-usage: wig-ng.py [-h] [-v] [-c count] [-a]  
-                 (-i network interface | -r pcap file | -R pcap directory)  
-  
-optional arguments:  
-  -h, --help            show this help message and exit  
-  -v, --verbose         Output verbosity (incremental).  
-  -c count, --concurrent count  
-                        Number of PCAP capture files to process  
-                        simultaneously.  
-  -a, --active          Some modules can perform frame injection, this is  
-                        define by setting the active mode.  
-  -i network interface, --interface network interface  
-                        IEEE 802.11 network interface on monitor mode.  
-  -r pcap file          PCAP capture file with IEEE 802.11 network traffic.  
-  -R pcap directory     Directory with PCAP capture files.  
-</pre>
+The `venv` module is included in Python 3.3 and later versions. If you're using an earlier version of Python, you'll need to install the `virtualenv` package.
 
-## Usage Examples
+## Step 2: Create a virtual environment
 
-**$** sudo iwconfig \<iface\> mode monitor  
-**$** sudo ifconfig \<iface\> up  
-**$** cd wig-ng  
-**$** sudo python wig-ng.py -i \<iface\>
+Decide upon a directory where you want to place your virtual environment, and run the `venv` module as a script with the directory path:
+
+ python3 -m venv venv
+
+This will create the `venv` directory if it doesn't exist, and also create directories inside it containing a copy of the Python interpreter and various supporting files.
+
+## Step 3: Activate the virtual environment
+
+Activating the virtual environment will change your shell’s prompt to show what virtual environment you’re using, and modify the environment so that running `python` will get you that particular version and installation of Python.
+
+On Windows:
+
+.\venv\Scripts\activate
+
+
+On Unix or MacOS:
+
+source venv/bin/activate
+
+
+## Step 4: Install packages
+
+Now that your virtual environment is activated, you can install packages using `pip`. These packages will only be installed in the virtual environment, not system-wide.
+
+## Step 5: Installation
+
+To install the necessary dependencies, run the following command in the wifi-sniffer directory:
+
+
+pip install -r requirements.txt
+
+## Step 6: Running
+
+To run the project use the following python command in the wifi-sniffer directory:
+
+python pcapgui.py 
