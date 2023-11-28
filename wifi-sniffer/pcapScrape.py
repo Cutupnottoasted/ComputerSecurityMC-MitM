@@ -7,7 +7,6 @@ from scapy.all import *
 from scapy.layers.dot11 import Dot11
 
 # 'example-ft.pcapng', 'ipv4frags.pcap', 'nf9-juniper-vmx.pcapng.cap', 'smtp.pcap', 'teardrop.cap', 'nf9-error.pcapng.cap', 'example-tptk-success.pcap'
-FILES = ['example-tptk-attack.pcapng', 'example-ft.pcapng', 'ipv4frags.pcap', 'nf9-juniper-vmx.pcapng.cap', 'smtp.pcap', 'teardrop.cap', 'nf9-error.pcapng.cap', 'example-tptk-success.pcap']
 file_handlers = []
 # initiate error logger
 error_logger = logging.getLogger('error_logger')
