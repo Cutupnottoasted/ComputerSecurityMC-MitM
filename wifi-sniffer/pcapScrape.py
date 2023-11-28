@@ -1,26 +1,22 @@
-# imports
-# formatting/debugging
-import logging
-from decimal import Decimal
-# pcap library
+# Import necessary libraries
 from scapy.all import *
 from scapy.layers.dot11 import Dot11
 
-# 'example-ft.pcapng', 'ipv4frags.pcap', 'nf9-juniper-vmx.pcapng.cap', 'smtp.pcap', 'teardrop.cap', 'nf9-error.pcapng.cap', 'example-tptk-success.pcap'
-FILES = ['example-tptk-attack.pcapng', 'example-ft.pcapng', 'ipv4frags.pcap', 'nf9-juniper-vmx.pcapng.cap', 'smtp.pcap', 'teardrop.cap', 'nf9-error.pcapng.cap', 'example-tptk-success.pcap']
+# List of pcap file names to process
+FILES = ['example-tptk-attack.pcapng', 'example-ft.pcapng', 'ipv4frags.pcap', 'nf9-juniper-vmx.pcapng.cap', 'smtp.pcap',
+         'teardrop.cap', 'nf9-error.pcapng.cap', 'example-tptk-success.pcap']
 
 """ ********************************************** INITIATE LOGGING ********************************************** """
-# initiate error logger
+# Error logger setup
 error_logger = logging.getLogger('error_logger')
 error_logger.setLevel(logging.ERROR)
 error_logger.propagate = False
 file_handler = logging.FileHandler('error.log', mode='w')
-# formatter
 log_formatter = logging.Formatter('%(asctime)s %(levelname)s:%(message)s')
-file_handler.setFormatter(log_formatter) # configure file_handler
+file_handler.setFormatter(log_formatter)
 error_logger.addHandler(file_handler)
 
-# Create a new logger for suspicious packets
+# New logger for suspicious packets
 suspicious_logger = logging.getLogger('suspicious_logger')
 suspicious_logger.setLevel(logging.INFO)
 suspicious_logger.propagate = False
@@ -28,18 +24,15 @@ file_handler_suspicious = logging.FileHandler('suspicious_packets.log', mode='w'
 file_handler_suspicious.setLevel(logging.INFO)
 suspicious_logger.addHandler(file_handler_suspicious)
 
-
-# initiate info logger
-
-# print statements
+# Information logger setup
 info_logger = logging.getLogger('info_logger')
 info_logger.setLevel(logging.INFO)
 info_logger.propagate = False
-# file handler
-file_handler = logging.FileHandler('info.log',  mode='w') # reset every run
+file_handler = logging.FileHandler('info.log', mode='w')  # Reset every run
 file_handler.setLevel(logging.INFO)
 info_logger.addHandler(file_handler)
 
+# Security logger setup
 security_logger = logging.getLogger('security_logger')
 security_logger.setLevel(logging.WARNING)
 security_logger.propagate = False
@@ -47,17 +40,20 @@ file_handler = logging.FileHandler('security.log', mode='w')
 file_handler.setLevel(logging.WARNING)
 security_logger.addHandler(file_handler)
 
+# Initial log statements
 info_logger.info("************************************* PCAP FILE OUTPUT *************************************\n")
 security_logger.warning("************************************* PCAP FILE WARNINGS *************************************\n")
-# formatted_time = datetime.utcfromtimestamp(timestamp).strftime('%Y-%m-%d %H:%M:%S.%f')[:-3]
 
 
+# Function to extract nonce from raw payload
 def extract_nonce(raw_payload):
     start_offset = 13
     length = 32
     nonce = raw_payload[start_offset:start_offset + length]
     return nonce.hex()
 
+
+# Function to identify subtype based on a given number
 def identify_subtype(n):
     if n == 0:
         return 'Association Request'
@@ -67,23 +63,27 @@ def identify_subtype(n):
         return 'Probe Request'
     if n == 5:
         return 'Probe Response'
-    if n == 8: # Handshake/broadcast
+    if n == 8:  # Handshake/broadcast
         return 'Beacon'
     if n == 11:
         return 'Authentication'
     if n == 12:
         return 'Deauthentication'
-    if n == 13: # receipt acknowledgement
+    if n == 13:  # Receipt acknowledgement
         return 'Action'
 
+
+# Function to audit probe requests and check for suspicious behavior
 def audit_probe_requests(attack):
     flag = False
-    packets_per_sec = attack[-1][1] / len(attack) 
+    packets_per_sec = attack[-1][1] / len(attack)
     audit = f'Total Requests: {len(attack)} Total Time: {attack[-1][1]} Packets/Sec: {packets_per_sec}'
     if packets_per_sec < 1.0:
         flag = True
     return audit, flag
 
+
+# Function to analyze packets and log information
 def analyze_packets(pcap_info):
     for packet in pcap_info:
         for key, value in packet.items():
@@ -91,6 +91,8 @@ def analyze_packets(pcap_info):
                 info_logger.info(f'{key}: {value}')
         info_logger.info('\n')
 
+
+# Function to process pcap file and create a dictionary of frame info
 def process_pcap(pcap_file):
     packets = []
     try:
@@ -103,7 +105,6 @@ def process_pcap(pcap_file):
 
     pcap_info = []
 
-    # create dictionary of frame info
     def process_packet(packet, packet_number):
         packet_info = {
             'No.': packet_number,
@@ -129,16 +130,19 @@ def process_pcap(pcap_file):
         if packet.haslayer('EAPOL'):
             packet_info['Protocol'] = 'EAPOL'
             packet_info['Nonce'] = extract_nonce(packet.load)
-        
+
         pcap_info.append(packet_info)
-    
+
     for packet_number, packet in enumerate(packets, 1):
         process_packet(packet, packet_number)
-    
+
     return pcap_info
 
+
+# Function to identify potential probe request attacks
 def pull_probe_requests(pcap_info, window=1.0, threshold=10):
-    probe_requests = [(packet['Time'], packet['No.']) for packet in pcap_info if packet['Protocol'] == '802.11' and packet.get('Subtype') == 'Probe Request']
+    probe_requests = [(packet['Time'], packet['No.']) for packet in pcap_info if
+                      packet['Protocol'] == '802.11' and packet.get('Subtype') == 'Probe Request']
 
     potential_attacks = []
     seen_packets = set()  # Store packet numbers already seen
@@ -159,13 +163,15 @@ def pull_probe_requests(pcap_info, window=1.0, threshold=10):
                 packets_in_window.append((next_packet_num, elapsed_time))
             else:
                 break
-        
+
         if len(packets_in_window) >= threshold:
             potential_attacks.append(packets_in_window)
             seen_packets.update(num for num, _ in packets_in_window)  # Add these packets to the set of counted packets
 
     return potential_attacks
 
+
+# Function to audit EAPOL requests and check for duplicate nonces
 def audit_eapol(attack):
     seen_nonce = {}
     flag = False
@@ -185,8 +191,11 @@ def audit_eapol(attack):
 
     return audit, flag
 
+
+# Function to identify potential EAPOL attacks
 def pull_eapol(pcap_info):
-    eapol_requests = [(packet['No.'], packet['Nonce']) for packet in pcap_info if packet['Protocol'] == 'EAPOL' and packet.get('Subtype') == 'Beacon']
+    eapol_requests = [(packet['No.'], packet['Nonce']) for packet in pcap_info if
+                      packet['Protocol'] == 'EAPOL' and packet.get('Subtype') == 'Beacon']
 
     potential_attacks = []
     seen_nonce = set()
@@ -200,22 +209,12 @@ def pull_eapol(pcap_info):
 
     return potential_attacks
 
-     
+
+# Main function to process pcap file, analyze packets, and log information
 def main(pcap_file):
     pcap_file = f'data/{pcap_file}'
     pcap_info = process_pcap(pcap_file)
     analyze_packets(pcap_info)
-
-    # Create error, info, and security loggers as before
-    # ...
-
-    # Create a new logger for suspicious packets
-    suspicious_logger = logging.getLogger('suspicious_logger')
-    suspicious_logger.setLevel(logging.INFO)
-    suspicious_logger.propagate = False
-    file_handler_suspicious = logging.FileHandler('suspicious_packets.log', mode='w')
-    file_handler_suspicious.setLevel(logging.INFO)
-    suspicious_logger.addHandler(file_handler_suspicious)
 
     # Process probe requests and log information
     potential_attacks = pull_probe_requests(pcap_info)
