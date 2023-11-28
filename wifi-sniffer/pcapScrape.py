@@ -2,6 +2,7 @@
 # formatting/debugging
 import logging
 from decimal import Decimal
+
 # pcap library
 from scapy.all import *
 from scapy.layers.dot11 import Dot11
@@ -137,7 +138,11 @@ def process_pcap(pcap_file):
     
     for packet_number, packet in enumerate(packets, 1):
         process_packet(packet, packet_number)
-    
+        
+    # Set the effective level of the logger to INFO
+    info_logger.setLevel(logging.INFO)
+    analyze_packets(pcap_info)
+            
     return pcap_info
 
 def pull_probe_requests(pcap_info, window=1.0, threshold=10):
@@ -250,6 +255,9 @@ def main(pcap):
     suspicious_logger.addHandler(file_handler)
 
     
+    # Set the effective level of the logger to INFO
+    info_logger.setLevel(logging.INFO)
+    analyze_packets(pcap_info)
     
     # Process probe requests and log information
     potential_attacks = pull_probe_requests(pcap_info)

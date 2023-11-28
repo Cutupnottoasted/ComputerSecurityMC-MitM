@@ -12,17 +12,35 @@ def delete_log_files():
    # Delete each log file
    for log_file in log_files:
        os.remove(log_file)
+
 def run_pcapScrape():
+   # Hide 
+  no_error_label.place_forget()
+   # Hide error
+  error_label.place_forget()
    # Hide download
   button_download.place_forget()
    # Get the current option
   current_option = drop_down_menu.cget("text")
+  # Clear the info.log file
+  with open('info.log', 'w'):
+      pass
+  with open('security.log', 'w'):
+      pass
+  with open('error.log', 'w'):
+      pass
+
   # Pass the current option to the main function
   pcapScrape.main(current_option)
   # Show the "Download Report" button
   if os.path.getsize('suspicious_packets.log') > 0:
+     # Show the error message
+     error_label.place(relx=0.5, rely=0.7, anchor=tk.CENTER)
      # Show the "Download Report" button
-     button_download.place(relx=0.5, rely=0.7, anchor=tk.CENTER)
+     button_download.place(relx=0.5, rely=0.8, anchor=tk.CENTER)
+  else:
+     no_error_label.place(relx=0.5, rely=0.7, anchor=tk.CENTER)
+     
 
 def browseFiles():
    filename = filedialog.askopenfilename(initialdir = "/",
@@ -73,10 +91,20 @@ button = tk.Button(root, text="Scan", command=run_pcapScrape, bg='green',fg='whi
 button.config(font=("Courier", 12))
 button.place(relx=0.5, rely=0.6, anchor=tk.CENTER)
 
+# Create a "No suspicious" button
+no_error_label = tk.Label(root, text="No suspicious packets found")
+no_error_label.config(font=("Courier", 12))
+no_error_label.place(relx=0.5, rely=0.7, anchor=tk.CENTER)
+no_error_label.place_forget()
 # Create a "Download Report" button
-button_download = tk.Button(root, text="Download Report", command=downloadReport, bg='blue',fg='white')
+error_label = tk.Label(root, text="Suspicious packets found")
+error_label.config(font=("Courier", 10))
+error_label.place(relx=0.5, rely=0.7, anchor=tk.CENTER)
+error_label.place_forget()
+
+button_download = tk.Button(root, text="Download Report", command=downloadReport, bg='red',fg='black')
 button_download.config(font=("Courier", 12))
-button_download.place(relx=0.5, rely=0.7, anchor=tk.CENTER)
+button_download.place(relx=0.5, rely=0.8, anchor=tk.CENTER)
 button_download.place_forget()
 
 # Register delete_log_files() with atexit
