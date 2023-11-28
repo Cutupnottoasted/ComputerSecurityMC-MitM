@@ -192,9 +192,8 @@ def pull_eapol(pcap_info):
     return potential_attacks
 
      
-def main(pcap_file):
-
-    pcap_file = f'data/{pcap_file}'
+def main(pcap):
+    pcap_file = f'{pcap}'
     pcap_info = process_pcap(pcap_file)
     analyze_packets(pcap_info)
 
