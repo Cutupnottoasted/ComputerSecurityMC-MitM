@@ -1,8 +1,20 @@
-# ComputerSecurityMC-MitM
+# ComputerSecurityMC-MitM - Wifi-Sniffer (pcap analyzer)
+
+## Description
+This program is used to detect suspicious activity by analyzing pcap files.
+It is able to detect rapid probe requests and duplicate nonce values that occur during 4-Way-Handshakes. 
+A user can choose from a list of pcap files or can browse their directory. If a suspicious activity is
+detected the user can view the entire capture or download the suspicous packets
 
 ## Prerequisites
 
 - Python 3.3 or later
+
+## Suported Protocols & Standards 
+
+ - Extensible Authenticaiton Protocol over Lan (EAPOL)
+ - Wi-Fi Protected Access 2 (WPA2)
+ - IEEE 802.11 (802.11)
 
 ## Step 1: Install the venv module
 
