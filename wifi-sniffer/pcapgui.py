@@ -1,12 +1,28 @@
 import tkinter as tk
 import tkinter.filedialog as filedialog
 import pcapScrape
+import shutil
+import os
+import atexit
+import glob 
 
+def delete_log_files():
+   # Get a list of all log files
+   log_files = glob.glob('*.log')
+   # Delete each log file
+   for log_file in log_files:
+       os.remove(log_file)
 def run_pcapScrape():
+   # Hide download
+  button_download.place_forget()
    # Get the current option
-   current_option = drop_down_menu.cget("text")
-   # Pass the current option to the main function
-   pcapScrape.main(current_option)
+  current_option = drop_down_menu.cget("text")
+  # Pass the current option to the main function
+  pcapScrape.main(current_option)
+  # Show the "Download Report" button
+  if os.path.getsize('suspicious_packets.log') > 0:
+     # Show the "Download Report" button
+     button_download.place(relx=0.5, rely=0.7, anchor=tk.CENTER)
 
 def browseFiles():
    filename = filedialog.askopenfilename(initialdir = "/",
@@ -19,17 +35,15 @@ def browseFiles():
    current_option.set(filename)
 
 def downloadReport():
-   filename = filedialog.asksaveasfile(initialdir = "/",
-                               title = "Download Report",
-                               filetypes = (("log files",
-                                        "*.log*"),
-                                       ("all files",
-                                        "*.*")))
-   # Here you should add the code to copy the content of info.log to the selected file
-   # For example:
-   with open('info.log', 'r') as source:
-       with open("filename.log", 'w') as target:
-           target.write(source.read())
+  filename = filedialog.asksaveasfilename(initialdir = "/",
+                             title = "Download Report",
+                             filetypes = (("log files",
+                                     "*.log*"),
+                                    ("all files",
+                                     "*.*")))
+  if filename:
+      # Copy the content of info.log to the selected file
+      shutil.copyfile('suspicious_packets.log', filename)
 
 root = tk.Tk()
 root.geometry("300x400")
@@ -63,5 +77,8 @@ button.place(relx=0.5, rely=0.6, anchor=tk.CENTER)
 button_download = tk.Button(root, text="Download Report", command=downloadReport, bg='blue',fg='white')
 button_download.config(font=("Courier", 12))
 button_download.place(relx=0.5, rely=0.7, anchor=tk.CENTER)
+button_download.place_forget()
 
+# Register delete_log_files() with atexit
+atexit.register(delete_log_files)
 root.mainloop()

@@ -8,13 +8,13 @@ from scapy.layers.dot11 import Dot11
 
 # 'example-ft.pcapng', 'ipv4frags.pcap', 'nf9-juniper-vmx.pcapng.cap', 'smtp.pcap', 'teardrop.cap', 'nf9-error.pcapng.cap', 'example-tptk-success.pcap'
 FILES = ['example-tptk-attack.pcapng', 'example-ft.pcapng', 'ipv4frags.pcap', 'nf9-juniper-vmx.pcapng.cap', 'smtp.pcap', 'teardrop.cap', 'nf9-error.pcapng.cap', 'example-tptk-success.pcap']
-
-""" ********************************************** INITIATE LOGGING ********************************************** """
+file_handlers = []
 # initiate error logger
 error_logger = logging.getLogger('error_logger')
 error_logger.setLevel(logging.ERROR)
 error_logger.propagate = False
 file_handler = logging.FileHandler('error.log', mode='w')
+file_handlers.append(file_handler)
 # formatter
 log_formatter = logging.Formatter('%(asctime)s %(levelname)s:%(message)s')
 file_handler.setFormatter(log_formatter) # configure file_handler
@@ -24,9 +24,11 @@ error_logger.addHandler(file_handler)
 suspicious_logger = logging.getLogger('suspicious_logger')
 suspicious_logger.setLevel(logging.INFO)
 suspicious_logger.propagate = False
-file_handler_suspicious = logging.FileHandler('suspicious_packets.log', mode='w')
-file_handler_suspicious.setLevel(logging.INFO)
-suspicious_logger.addHandler(file_handler_suspicious)
+file_handler = logging.FileHandler('suspicious_packets.log', mode='w')
+file_handlers.append(file_handler)
+file_handler.setLevel(logging.INFO)
+suspicious_logger.addHandler(file_handler)
+
 
 
 # initiate info logger
@@ -37,6 +39,7 @@ info_logger.setLevel(logging.INFO)
 info_logger.propagate = False
 # file handler
 file_handler = logging.FileHandler('info.log',  mode='w') # reset every run
+file_handlers.append(file_handler)
 file_handler.setLevel(logging.INFO)
 info_logger.addHandler(file_handler)
 
@@ -44,6 +47,7 @@ security_logger = logging.getLogger('security_logger')
 security_logger.setLevel(logging.WARNING)
 security_logger.propagate = False
 file_handler = logging.FileHandler('security.log', mode='w')
+file_handlers.append(file_handler)
 file_handler.setLevel(logging.WARNING)
 security_logger.addHandler(file_handler)
 
@@ -208,15 +212,46 @@ def main(pcap):
 
     # Create error, info, and security loggers as before
     # ...
-
+    error_logger = logging.getLogger('error_logger')
+    error_logger.setLevel(logging.ERROR)
+    error_logger.propagate = False
+    file_handler = logging.FileHandler('error.log', mode='w')
+    file_handlers.append(file_handler)
+    # formatter
+    log_formatter = logging.Formatter('%(asctime)s %(levelname)s:%(message)s')
+    file_handler.setFormatter(log_formatter) # configure file_handler
+    error_logger.addHandler(file_handler)
+    
+    # initiate info logger
+    
+    # print statements
+    info_logger = logging.getLogger('info_logger')
+    info_logger.setLevel(logging.INFO)
+    info_logger.propagate = False
+    # file handler
+    file_handler = logging.FileHandler('info.log',  mode='w') # reset every run
+    file_handlers.append(file_handler)
+    file_handler.setLevel(logging.INFO)
+    info_logger.addHandler(file_handler)
+    
+    security_logger = logging.getLogger('security_logger')
+    security_logger.setLevel(logging.WARNING)
+    security_logger.propagate = False
+    file_handler = logging.FileHandler('security.log', mode='w')
+    file_handlers.append(file_handler)
+    file_handler.setLevel(logging.WARNING)
+    security_logger.addHandler(file_handler)
     # Create a new logger for suspicious packets
     suspicious_logger = logging.getLogger('suspicious_logger')
     suspicious_logger.setLevel(logging.INFO)
     suspicious_logger.propagate = False
-    file_handler_suspicious = logging.FileHandler('suspicious_packets.log', mode='w')
-    file_handler_suspicious.setLevel(logging.INFO)
-    suspicious_logger.addHandler(file_handler_suspicious)
+    file_handler = logging.FileHandler('suspicious_packets.log', mode='w')
+    file_handlers.append(file_handler)
+    file_handler.setLevel(logging.INFO)
+    suspicious_logger.addHandler(file_handler)
 
+    
+    
     # Process probe requests and log information
     potential_attacks = pull_probe_requests(pcap_info)
     for attack in potential_attacks:
@@ -244,3 +279,5 @@ def main(pcap):
     # Log separation lines in info and security log files
     info_logger.info(f'============================== {pcap_file.upper()} ==============================\n')
     security_logger.warning(f'============================== {pcap_file.upper()} ==============================\n')
+    for handler in file_handlers:
+        handler.close()
