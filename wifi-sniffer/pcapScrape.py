@@ -41,8 +41,8 @@ file_handler.setLevel(logging.WARNING)
 security_logger.addHandler(file_handler)
 
 # Initial log statements
-info_logger.info("************************************* PCAP FILE OUTPUT *************************************\n")
-security_logger.warning("************************************* PCAP FILE WARNINGS *************************************\n")
+# info_logger.info("************************************* PCAP FILE OUTPUT *************************************\n")
+# security_logger.warning("************************************* PCAP FILE WARNINGS *************************************\n")
 
 
 # Extract nonce value from EAPOL payload 
@@ -85,8 +85,6 @@ def process_pcap(pcap_file):
     packets = [] # avoid None error
     try:
         packets = rdpcap(pcap_file)
-        info_logger.info(f'============================== {pcap_file.upper()} ==============================')
-        security_logger.warning(f'============================== {pcap_file.upper()} ==============================\n')
         info_logger.info(f"Successfully read {len(packets)} packets from {pcap_file}\n")
     except Exception as e:
         error_logger.error(f"Error reading {pcap_file}: {e}")
@@ -98,6 +96,8 @@ def process_pcap(pcap_file):
         packet_info = {
             'No.': packet_number,
             'Time': packet.time,
+            'Src': None,
+            'Dst': None,
             'Protocol': None,
             'Subtype': None,
             'Seq. No.': None,
@@ -135,9 +135,9 @@ def process_pcap(pcap_file):
 # if the total packets_per_sec is > 1.0 then flag issue
 def audit_probe_requests(attack):
     flag = False
-    packets_per_sec = attack[-1][1] / len(attack) # Packets/sec = total target packets / total transmission time
+    packets_per_sec = len(attack) / attack[-1][1] # Packets/sec = total target packets / total transmission time
     audit = f'Total Requests: {len(attack)} Total Time: {attack[-1][1]} Packets/Sec: {packets_per_sec}'
-    if packets_per_sec < 1.0:
+    if packets_per_sec > 1.0:
         flag = True
     return audit, flag
 
@@ -145,7 +145,7 @@ def audit_probe_requests(attack):
 def pull_probe_requests(pcap_info, window=1.0, threshold=10):
     # insert packet field values Time and No. that are 802.11/Probe Request
     probe_requests = [(packet['Time'], packet['No.']) for packet in pcap_info 
-                        if packet['Protocol'] == '802.11' and packet.get('Subtype') == 'Probe Request']
+                        if packet['Protocol'] == '802.11' and packet.get('Subtype') == 'Probe Request' or packet.get('Subtype') == 'Probe Response']
 
     potential_attacks = []
     seen_packets = set()  # store packet numbers already seen
@@ -177,39 +177,48 @@ def pull_probe_requests(pcap_info, window=1.0, threshold=10):
 # Searches for duplicate nonce values and reports if found
 def audit_eapol(attack):
     seen_nonce = {}
-    flag = False 
-    audit = None
-    dup_nonce = None
+    src_dst = [] # holds the src and dst with packet num as key
 
-    # for tuple packet_num and nonce in attacks
-    for packet_num, nonce in attack:
+    dup_nonces = []
+    flag = False
+    audit = None
+
+    # for tuple in packet_num and nonce in attacks
+    for packet_num, nonce, src, dst in attack:
         if nonce in seen_nonce: # if nonce already seen
             flag = True
-            dup_nonce = nonce
+            dup_nonces.append(nonce)
             seen_nonce[nonce].append(packet_num)
+            src_dst.append((src, dst))
         else:
             seen_nonce[nonce] = [packet_num]
+            src_dst = [[packet_num, src, dst]]
     # if flag true then get packet_numbers and duplicate nonce
     if flag:
-        packet_numbers = seen_nonce[dup_nonce]
-        audit = f'Duplicate nonce {dup_nonce} found in packets: {packet_numbers}'
+        for nonce in dup_nonces:
+            packet_numbers = seen_nonce[nonce]
+            if len(packet_numbers) == 2:
+                flag = False
+            audit = f'Duplicate nonce {nonce} found in packets: {packet_numbers}\n\nSource/Destination MAC addresses:'
+            for num in packet_numbers:
+                audit = audit + f'\n{num}: {src} -> {dst}'
 
     return audit, flag
 
 # pulls all 4-way-handshake between client and host
 def pull_eapol(pcap_info):
     # for values packet(No., Nonce) in pcap_info, if Protocol EAPOL and Subtype Beacon then insert to eapol_requests    
-    eapol_requests = [(packet['No.'], packet['Nonce']) for packet in pcap_info if packet['Protocol'] == 'EAPOL' and packet.get('Subtype') == 'Beacon']
+    eapol_requests = [(packet['No.'], packet['Nonce'], packet['Src'], packet['Dst']) for packet in pcap_info if packet['Protocol'] == 'EAPOL']
 
     potential_attacks = []
     seen_nonce = set()
 
-    for packet_num, nonce in eapol_requests:
+    for _, nonce, src, dst in eapol_requests:
         if nonce in seen_nonce:
             continue
         seen_nonce.add(nonce)
-        # for each tuple (No., Nonce) in eapol_requests if n == nonce then append to nonce_packets
-        nonce_packets = [(num, n) for num, n in eapol_requests if n == nonce]
+        # Group packets by shared nonce values
+        nonce_packets = [(num, n, src, dst) for num, n, _, _ in eapol_requests if n == nonce ]
         potential_attacks.append(nonce_packets)
 
     return potential_attacks
@@ -287,10 +296,7 @@ def main(pcap):
     for attack in potential_attacks:
         audit, flag = audit_eapol(attack)
         if audit:
-            security_logger.warning(f'{audit} -- Block Traffic: {flag} File: {pcap_file}\n')
+            security_logger.warning(f'{audit}\nBlock Traffic: {flag}, File: {pcap_file}\n')
 
-    # Log separation lines in info and security log files
-    info_logger.info(f'============================== {pcap_file.upper()} ==============================\n')
-    security_logger.warning(f'============================== {pcap_file.upper()} ==============================\n')
     for handler in file_handlers:
         handler.close()
