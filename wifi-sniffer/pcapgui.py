@@ -44,7 +44,10 @@ def browseFiles():
                                        ("all files",
                                         "*.*")))
    # Update the current option
-   current_option.set(filename)
+   if filename == "":
+      current_option.set(options[0])
+   else:
+      current_option.set(filename)
 
 def downloadReport():
   filename = filedialog.asksaveasfilename(initialdir = "/",
@@ -59,10 +62,9 @@ def downloadReport():
 
 root = tk.Tk()
 root.geometry("300x400")
-
-label = tk.Label(root, text="Select a pcap file to scan")
-label.config(font=("Courier", 12))
-label.place(relx=0.5, rely=0.3, anchor=tk.CENTER)
+label = tk.Label(root, text="Select a pcap file to scan for suspicious packets", wraplength=300, justify='center')
+label.config(font=("Courier", 12, "bold"))
+label.place(relx=0.5, rely=0.19, anchor=tk.CENTER)
 
 options = ['data/example-tptk-attack.pcapng', 'data/example-ft.pcapng', 'data/ipv4frags.pcap', 'data/nf9-juniper-vmx.pcapng.cap', 'data/smtp.pcap', 'data/teardrop.cap', 'data/nf9-error.pcapng.cap', 'data/example-tptk-success.pcap']
 
@@ -76,7 +78,7 @@ drop_down_menu.config(font=("Courier", 10))
 drop_down_menu.place(relx=0.5, rely=0.4, anchor=tk.CENTER)
 
 # Create a button to browse files
-button_browse = tk.Button(root, text="Browse Files", command=browseFiles)
+button_browse = tk.Button(root, text="Browse Files", command=browseFiles, bg='blue',fg='white')
 button_browse.config(font=("Courier", 12))
 button_browse.place(relx=0.5, rely=0.5, anchor=tk.CENTER)
 
@@ -85,20 +87,19 @@ button = tk.Button(root, text="Scan", command=run_pcapScrape, bg='green',fg='whi
 button.config(font=("Courier", 12))
 button.place(relx=0.5, rely=0.6, anchor=tk.CENTER)
 
-# Create a "No suspicious" button
-no_error_label = tk.Label(root, text="No suspicious packets found")
+# Create a "No suspicious" label
+no_error_label = tk.Label(root, text="No suspicious packets found", fg='green')
 no_error_label.config(font=("Courier", 12))
-no_error_label.place(relx=0.5, rely=0.7, anchor=tk.CENTER)
 no_error_label.place_forget()
-# Create a "Download Report" button
-error_label = tk.Label(root, text="Suspicious packets found")
-error_label.config(font=("Courier", 10))
-error_label.place(relx=0.5, rely=0.7, anchor=tk.CENTER)
+
+# Create a "suspicious" label
+error_label = tk.Label(root, text="Suspicious packets found", fg='red')
+error_label.config(font=("Courier", 12))
 error_label.place_forget()
 
-button_download = tk.Button(root, text="Download Report", command=downloadReport, bg='red',fg='black')
+# Create a "Download Report" button
+button_download = tk.Button(root, text="Download Report", command=downloadReport, bg='red',fg='white')
 button_download.config(font=("Courier", 12))
-button_download.place(relx=0.5, rely=0.8, anchor=tk.CENTER)
 button_download.place_forget()
 
 # Register delete_log_files() with atexit
